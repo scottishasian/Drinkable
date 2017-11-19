@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Drinkable</string>
+    <string name="choices_activity_title">Choose your ingredients</string>
+    <string name="welcome">Need a drink??</string>
+</resources>
