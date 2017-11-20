@@ -19,7 +19,8 @@
         <activity
             android:name=".Controllers.ChoicesActivity"
             android:label="@string/choices_activity_title"
-            android:parentActivityName=".Controllers.MainActivity"></activity>
+            android:parentActivityName=".Controllers.MainActivity" />
+        <activity android:name=".Controllers.AddInfoActivity"></activity>
     </application>
 
 </manifest>

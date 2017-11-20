@@ -8,23 +8,23 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by kynansong on 19/11/2017.
  */
 
-public class Ingredients extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "spirits.db";
+public class Ingredients {
 
+    //Ingredients table
+    private static final String TAG = Ingredients.class.getSimpleName();
+    private static final String TABLE_INGREDIENTS = "ingredients_table";
+    private static final String KEY_INGREDIENT_ID = "INGREDIENT_ID";
+    private static final String INGREDIENT_NAME = "INGREDIENT_NAME";
 
-    public Ingredients(Context context) {
-        super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
+    private String ingredientID;
+    private String ingredientNAME;
 
+    public String getIngredientID() {
+        return ingredientID;
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-
+    public String getIngredientName(){
+        return ingredientNAME;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
 }

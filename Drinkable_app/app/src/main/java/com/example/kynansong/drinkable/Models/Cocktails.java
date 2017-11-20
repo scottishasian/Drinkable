@@ -8,28 +8,29 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by kynansong on 17/11/2017.
  */
 
-public class Cocktails extends SQLiteOpenHelper {
+public class Cocktails {
 
-    private static final String DATABASE_NAME = "drinkable.db";
-    private static final String TABLE_NAME = "cocktails_table";
-    private static final String COL_1 = "ID";
-    private static final String COL_2 = "COCKTAIL_NAME";
-    private static final String COL_3 = "COCKTAIL_DESCRIPTION";
+    //Cocktail table
+    private static final String TAG = Cocktails.class.getSimpleName();
+    private static final String TABLE_COCKTAILS = "cocktails_table";
+    private static final String KEY_COCKTAIL_ID = "Cocktail_ID";
+    private static final String COCKTAIL_NAME = "COCKTAIL_NAME";
+    private static final String COCKTAIL_DESCRIPTION = "COCKTAIL_DESCRIPTION";
 
-    public Cocktails(Context context) {
-        super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
+    private String cocktailID;
+    private String cocktailName;
+    private String cocktailDescription;
 
+    public String getCocktailID() {
+        return cocktailID;
     }
 
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-
+    public String getCocktailName() {
+        return cocktailName;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public String getCocktailDescription() {
+        return cocktailDescription;
     }
+
 }
