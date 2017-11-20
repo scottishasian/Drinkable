@@ -21,6 +21,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
     private static final int VERSION = 8;
     CocktailsRepo cocktails;
+    IngredientsRepo ingredients;
     Context context;
 
     public DrinkableDatabase(Context context) {
@@ -28,9 +29,8 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         this.cocktails = new CocktailsRepo(context);
 
-        }
-
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -39,6 +39,8 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL(DrinksRepo.createTable());
 
         cocktails.CocktailSeeds();
+        ingredients.IngredientSeeds();
+
     }
 
     @Override

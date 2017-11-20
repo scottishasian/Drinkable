@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.kynansong.drinkable.Database.DrinkableDatabase;
 import com.example.kynansong.drinkable.Models.Ingredients;
 
 /**
@@ -18,6 +19,7 @@ public class IngredientsRepo {
     public static final String KEY_INGREDIENT_ID = "INGREDIENT_ID";
     private static final String INGREDIENT_NAME = "INGREDIENT_NAME";
     private Context context;
+    private DrinkableDatabase drinkable;
 
     private String ingredientID;
 
@@ -32,18 +34,22 @@ public class IngredientsRepo {
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + INGREDIENT_NAME + " TEXT " + ")";
     }
 
+    public boolean insertIngredients(String name) {
+        SQLiteDatabase db = drinkable.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(INGREDIENT_NAME, name);
+        long result = db.insert(TABLE_INGREDIENTS, null, contentValues);
+        return result != -1;
+    }
+
+    public void IngredientSeeds() {
+        insertIngredients("Rum");
+        insertIngredients("Bourbon");
+        insertIngredients("Vodka");
+        insertIngredients("Gin");
+    }
 
 
-//    public void insertIngredients() {
-//        IngredientsRepo ingredientsRepo = new IngredientsRepo(context);
-//        Ingredients ingredient = new Ingredients();
-//
-//        ingredient.setIngredientName("Vodka");
-//        ingredientsRepo.insertDrink(ingredient);
-//
-//        ingredient.setIngredientName("Rum");
-//        ingredientsRepo.insertDrink(ingredient);
-//
-//    }
+
 
 }
