@@ -19,9 +19,16 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
+    private static final int VERSION = 8;
+    CocktailsRepo cocktails;
+    Context context;
 
     public DrinkableDatabase(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, VERSION);
+        SQLiteDatabase db = this.getWritableDatabase();
+        this.cocktails = new CocktailsRepo(context);
+
+        }
 
     }
 
@@ -31,6 +38,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL(IngredientsRepo.createTable());
         db.execSQL(DrinksRepo.createTable());
 
+        cocktails.CocktailSeeds();
     }
 
     @Override

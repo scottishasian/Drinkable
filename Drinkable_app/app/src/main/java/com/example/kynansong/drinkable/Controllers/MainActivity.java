@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.kynansong.drinkable.Models.Cocktails;
 import com.example.kynansong.drinkable.R;
+import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 
 public class MainActivity extends AppCompatActivity {
 

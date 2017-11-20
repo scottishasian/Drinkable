@@ -20,7 +20,10 @@
             android:name=".Controllers.ChoicesActivity"
             android:label="@string/choices_activity_title"
             android:parentActivityName=".Controllers.MainActivity" />
-        <activity android:name=".Controllers.AddInfoActivity"></activity>
+        <activity
+            android:name=".Controllers.Cocktail_ListActivity"
+            android:label="@string/cocktail_list_title"
+            android:parentActivityName=".Controllers.ChoicesActivity"></activity>
     </application>
 
 </manifest>
