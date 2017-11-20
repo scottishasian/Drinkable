@@ -35,9 +35,9 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Cocktails.TABLE);
-        db.execSQL("DROP TABLE IF EXISTS " + Ingredients.TABLE);
-        db.execSQL("DROP TABLE IF EXISTS " + Drinks.TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + CocktailsRepo.TABLE_COCKTAILS);
+        db.execSQL("DROP TABLE IF EXISTS " + IngredientsRepo.TABLE_INGREDIENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + DrinksRepo.TABLE_DRINKS);
         onCreate(db);
 
     }

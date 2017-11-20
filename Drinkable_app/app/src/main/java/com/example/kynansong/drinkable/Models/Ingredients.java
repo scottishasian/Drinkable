@@ -10,11 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Ingredients {
 
-    //Ingredients table
-    private static final String TAG = Ingredients.class.getSimpleName();
-    private static final String TABLE_INGREDIENTS = "ingredients_table";
-    private static final String KEY_INGREDIENT_ID = "INGREDIENT_ID";
-    private static final String INGREDIENT_NAME = "INGREDIENT_NAME";
+
 
     private String ingredientID;
     private String ingredientNAME;

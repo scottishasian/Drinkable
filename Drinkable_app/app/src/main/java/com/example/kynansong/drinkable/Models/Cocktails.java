@@ -10,12 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Cocktails {
 
-    //Cocktail table
-    private static final String TAG = Cocktails.class.getSimpleName();
-    private static final String TABLE_COCKTAILS = "cocktails_table";
-    private static final String KEY_COCKTAIL_ID = "Cocktail_ID";
-    private static final String COCKTAIL_NAME = "COCKTAIL_NAME";
-    private static final String COCKTAIL_DESCRIPTION = "COCKTAIL_DESCRIPTION";
 
     private String cocktailID;
     private String cocktailName;
