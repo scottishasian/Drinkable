@@ -42,7 +42,7 @@ public class DrinksRepo{
                 + INGREDIENT_ID + " INTEGER, "
                 + "FOREIGN KEY(" + COCKTAIL_ID + ") REFERENCES " + TABLE_COCKTAILS + "(" + KEY_COCKTAIL_ID +"),"
                 + "FOREIGN KEY(" + INGREDIENT_ID + ") REFERENCES " + TABLE_INGREDIENTS + "(" + KEY_INGREDIENT_ID +"))";
-    }
+    }   // Must define items in table first then foreign keys.
 
 
     public boolean insertDrink(SQLiteDatabase db, int cocktail_id, int ingredient_id) {
@@ -54,7 +54,7 @@ public class DrinksRepo{
     }
 
     public void drinksSeeds(SQLiteDatabase db) {
-        insertDrink(db, 1,1);
+        insertDrink(db,1,1);
         insertDrink(db,1,5);
         insertDrink(db,1,6);
         insertDrink(db,1,7);

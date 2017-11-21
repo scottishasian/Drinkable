@@ -15,6 +15,7 @@ import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.kynansong.drinkable.Repo.CocktailsRepo.TABLE_COCKTAILS;
 import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDIENTS;
 
 /**
@@ -63,7 +64,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + CocktailsRepo.TABLE_COCKTAILS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COCKTAILS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INGREDIENTS);
         db.execSQL("DROP TABLE IF EXISTS " + DrinksRepo.TABLE_DRINKS);
 
@@ -86,6 +87,23 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.close();
 
         return ingredients;
+    }
+
+    public List<String> getAllCocktails() {
+        List<String> cocktails = new ArrayList();
+        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS; // need to select all for cursor to run through indexes.
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+
+        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
+            do {
+                cocktails.add(cursor.getString(1));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return cocktails;
     }
 
 

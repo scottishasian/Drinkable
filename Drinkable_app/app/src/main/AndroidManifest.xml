@@ -18,12 +18,16 @@
         </activity>
         <activity
             android:name=".Controllers.ChoicesActivity"
-            android:label="@string/choices_activity_title"
-            android:parentActivityName=".Controllers.MainActivity" />
+            android:label="@string/choices_activity_title" />
         <activity
             android:name=".Controllers.Cocktail_ListActivity"
             android:label="@string/cocktail_list_title"
-            android:parentActivityName=".Controllers.ChoicesActivity"></activity>
+            android:parentActivityName=".Controllers.ChoicesActivity" />
+        <activity
+            android:name=".Controllers.AddingActivity"
+            android:label="@string/cocktail_adding_title"
+            android:parentActivityName=".Controllers.ChoicesActivity"
+            ></activity>
     </application>
 
 </manifest>

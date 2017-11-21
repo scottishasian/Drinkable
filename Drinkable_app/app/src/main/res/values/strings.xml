@@ -3,4 +3,11 @@
     <string name="choices_activity_title">Choose your ingredients</string>
     <string name="welcome">Need a drink??</string>
     <string name="cocktail_list_title">Cocktails</string>
+    <string name="new_cocktail">Cocktail Name</string>
+    <string name="example_cocktail">Paloma</string>
+    <string name="new_measurements">Cocktail Measurements</string>
+    <string name="example_measurements">50ml Tequila, 50 ml Grape Fruit Juice,</string>
+    <string name="cocktail_adding_title">Add a Cocktail</string>
+    <string name="add_cocktail">Add Cocktail</string>
+    <string name="save_button">Save</string>
 </resources>
