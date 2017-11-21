@@ -17,8 +17,7 @@ import java.util.List;
 
 public class Ingredients {
 
-    IngredientsRepo ingredient;
-    SQLiteOpenHelper openHelper;
+
     private String ingredientID;
     private String ingredientNAME;
 

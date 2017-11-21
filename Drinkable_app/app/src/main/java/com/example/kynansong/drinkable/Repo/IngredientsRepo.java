@@ -55,24 +55,6 @@ public class IngredientsRepo {
         insertIngredients(db,"Bitters");
     }
 
-//    public List<String> getAllIngredients() {
-//        List<String> ingredients = new ArrayList<String>();
-//
-//        String selectQuery = "SELECT INGREDIENT_NAME FROM TABLE_INGREDIENTS";
-//
-//        SQLiteDatabase db = this.openHelper.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
-//
-//        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
-//            do {
-//                ingredients.add(cursor.getString(1)); //Gets ingredient names.
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//
-//        return ingredients;
-//    }
 
 
 

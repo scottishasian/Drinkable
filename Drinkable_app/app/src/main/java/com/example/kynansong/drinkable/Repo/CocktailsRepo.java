@@ -20,7 +20,7 @@ public class CocktailsRepo {
     //Cocktail table
     private static final String TAG = Cocktails.class.getSimpleName();
     public static final String TABLE_COCKTAILS = "cocktails_table";
-    private static final String KEY_COCKTAIL_ID = "Cocktail_ID";
+    public static final String KEY_COCKTAIL_ID = "Cocktail_ID";
     private static final String COCKTAIL_NAME = "COCKTAIL_NAME";
     private static final String COCKTAIL_MEASUREMENTS = "COCKTAIL_MEASUREMENTS";
 
