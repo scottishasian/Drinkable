@@ -19,16 +19,21 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 8;
+    private static final int VERSION = 5006;
     CocktailsRepo cocktails;
     IngredientsRepo ingredients;
+    DrinksRepo drinks;
     Context context;
 
     public DrinkableDatabase(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
-        SQLiteDatabase db = this.getWritableDatabase();
-        this.cocktails = new CocktailsRepo(context);
 
+        cocktails = new CocktailsRepo(context);
+        ingredients = new IngredientsRepo(context);
+        drinks = new DrinksRepo(context);
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
     }
 
 
@@ -38,8 +43,10 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL(IngredientsRepo.createTable());
         db.execSQL(DrinksRepo.createTable());
 
-        cocktails.CocktailSeeds();
-        ingredients.IngredientSeeds();
+        cocktails.CocktailSeeds(db);
+        ingredients.IngredientSeeds(db);
+        drinks.drinksSeeds(db);
+
 
     }
 
@@ -48,6 +55,9 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + CocktailsRepo.TABLE_COCKTAILS);
         db.execSQL("DROP TABLE IF EXISTS " + IngredientsRepo.TABLE_INGREDIENTS);
         db.execSQL("DROP TABLE IF EXISTS " + DrinksRepo.TABLE_DRINKS);
+//        if(newVersion > oldVersion) {
+//            db.execSQL("ALTER TABLE TABLE_COCKTAIL ADD COLUMN COCKTAIL_DESCRIPTION TEXT DEFAULT 0");
+//        }
         onCreate(db);
 
     }

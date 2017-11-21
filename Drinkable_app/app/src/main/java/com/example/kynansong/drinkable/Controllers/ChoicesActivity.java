@@ -35,16 +35,16 @@ public class ChoicesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choices);
 
         this.submitButton = (Button) findViewById(R.id.submit_button);
-        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
-        loadIngredientData();
+//        spinner.setOnItemSelectedListener(this);
+//        loadIngredientData();
     }
 
-    private void loadIngredientData() {   //to populate drop down
-        Ingredients db = new Ingredients();
-        List<String> options = db.getAllIngredients();
-        ArrayAdapter<String> dataAdaptor = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options);
-       spinner.setAdapter(dataAdaptor);
-    }
+//    private void loadIngredientData() {   //to populate drop down
+//        Ingredients db = new Ingredients();
+//        List<String> options = db.getAllIngredients();
+//        ArrayAdapter<String> dataAdaptor = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options);
+//       spinner.setAdapter(dataAdaptor);
+//    }
 
     public void onButtonClickChoices(View button) {
         Intent intent = new Intent(this, Cocktail_ListActivity.class);
