@@ -53,6 +53,8 @@ public class IngredientsRepo {
         insertIngredients(db,"Sugar");
         insertIngredients(db,"Mint");
         insertIngredients(db,"Bitters");
+        insertIngredients(db,"Whisky");
+        insertIngredients(db,"Tequila");
     }
 
 
