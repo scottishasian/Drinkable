@@ -15,6 +15,8 @@ import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDIENTS;
+
 /**
  * Created by kynansong on 19/11/2017.
  */
@@ -62,7 +64,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + CocktailsRepo.TABLE_COCKTAILS);
-        db.execSQL("DROP TABLE IF EXISTS " + IngredientsRepo.TABLE_INGREDIENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_INGREDIENTS);
         db.execSQL("DROP TABLE IF EXISTS " + DrinksRepo.TABLE_DRINKS);
 
         onCreate(db);
@@ -70,14 +72,15 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
     }
 
     public List<String> getAllIngredients() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT INGREDIENT_NAME FROM TABLE_INGREDIENTS", null); // Class to represent mouse cursor.
         List<String> ingredients = new ArrayList();
-        if(cursor.getCount() > 0) {      //loops through rows and adds to the arraylist.
-            for (int i = 0; i < cursor.getCount(); i++) {
-                cursor.moveToNext();
-                String INGREDIENT_NAME =  cursor.getString(1);
-            }
+        String selectQuery = "SELECT * FROM " + TABLE_INGREDIENTS;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+
+        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
+            do {
+                ingredients.add(cursor.getString(1));
+            }while(cursor.moveToNext());
         }
         cursor.close();
         db.close();

@@ -24,6 +24,7 @@ import java.util.List;
 public class ChoicesActivity extends AppCompatActivity {
     Context context;
     IngredientsRepo ingredientsRepo;
+    Spinner ingredients;
 
 
     Button submitButton;
@@ -34,26 +35,28 @@ public class ChoicesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choices);
+
+
+
+        this.submitButton = (Button) findViewById(R.id.submit_button);
+
+        ingredients = (Spinner) findViewById(R.id.ingredient_choice);
+
+        insertData();
+
+
+
+    }
+
+    public void insertData() {
+
         DrinkableDatabase db = new DrinkableDatabase(this);
-//        List<String> items = db.getAllIngredients();
-//
-//        this.submitButton = (Button) findViewById(R.id.submit_button);
-//
-//        Spinner ingredients = (Spinner) findViewById(R.id.ingredient_choice);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, items);
-//
-//        ingredients.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String name = (String)parent.getSelectedItem();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+        List<String> items = db.getAllIngredients();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, items);
+
+        ingredients.setAdapter(adapter);
 
 
 
