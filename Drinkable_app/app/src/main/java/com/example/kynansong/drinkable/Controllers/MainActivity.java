@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.welcomeButton = (Button) findViewById(R.id.welcome_button);
-        DrinkableDatabase db = new DrinkableDatabase(this);
     }
 
     public void onButtonClick(View button) {

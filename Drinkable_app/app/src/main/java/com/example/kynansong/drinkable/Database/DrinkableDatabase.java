@@ -1,6 +1,7 @@
 package com.example.kynansong.drinkable.Database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -11,6 +12,9 @@ import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by kynansong on 19/11/2017.
  */
@@ -19,7 +23,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 5006;
+    private static final int VERSION = 5007;
     CocktailsRepo cocktails;
     IngredientsRepo ingredients;
     DrinksRepo drinks;
@@ -61,6 +65,9 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
+
+
 
     //Inserting data needs an inner-join and access to the drinks table.
 }

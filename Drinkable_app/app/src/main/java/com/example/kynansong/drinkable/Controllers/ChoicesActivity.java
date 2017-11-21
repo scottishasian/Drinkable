@@ -17,6 +17,7 @@ import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChoicesActivity extends AppCompatActivity {
@@ -35,16 +36,16 @@ public class ChoicesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choices);
 
         this.submitButton = (Button) findViewById(R.id.submit_button);
-//        spinner.setOnItemSelectedListener(this);
-//        loadIngredientData();
+        DrinkableDatabase db = new DrinkableDatabase(this);
+
+//        ArrayList<String> ingredientschoices = db.getAllIngredients();
+//        Spinner choices = (Spinner)findViewById(R.id.ingredient_choice);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+//                (this, R.layout.activity_choices,  ingredientschoices);
+//        choices.setAdapter(adapter);
     }
 
-//    private void loadIngredientData() {   //to populate drop down
-//        Ingredients db = new Ingredients();
-//        List<String> options = db.getAllIngredients();
-//        ArrayAdapter<String> dataAdaptor = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options);
-//       spinner.setAdapter(dataAdaptor);
-//    }
+
 
     public void onButtonClickChoices(View button) {
         Intent intent = new Intent(this, Cocktail_ListActivity.class);

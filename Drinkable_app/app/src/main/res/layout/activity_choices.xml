@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kynansong.drinkable.Controllers.choicesActivity">
+    tools:context="com.example.kynansong.drinkable.Controllers.ChoicesActivity">
 
     <Spinner
         android:id="@+id/ingredient_choice"
@@ -36,4 +36,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredient_choice"
         app:layout_constraintVertical_bias="0.872" />
+
 </android.support.constraint.ConstraintLayout>

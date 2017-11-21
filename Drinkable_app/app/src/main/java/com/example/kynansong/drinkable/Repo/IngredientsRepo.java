@@ -2,10 +2,14 @@ package com.example.kynansong.drinkable.Repo;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.kynansong.drinkable.Database.DrinkableDatabase;
 import com.example.kynansong.drinkable.Models.Ingredients;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kynansong on 20/11/2017.
@@ -51,6 +55,24 @@ public class IngredientsRepo {
         insertIngredients(db,"Bitters");
     }
 
+//    public List<String> getAllIngredients() {
+//        List<String> ingredients = new ArrayList<String>();
+//
+//        String selectQuery = "SELECT INGREDIENT_NAME FROM TABLE_INGREDIENTS";
+//
+//        SQLiteDatabase db = this.openHelper.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+//
+//        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
+//            do {
+//                ingredients.add(cursor.getString(1)); //Gets ingredient names.
+//            } while (cursor.moveToNext());
+//        }
+//        cursor.close();
+//        db.close();
+//
+//        return ingredients;
+//    }
 
 
 

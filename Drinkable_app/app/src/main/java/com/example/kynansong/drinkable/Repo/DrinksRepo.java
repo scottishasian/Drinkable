@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.kynansong.drinkable.Database.DrinkableDatabase;
 import com.example.kynansong.drinkable.Models.Drinks;
 
+import static com.example.kynansong.drinkable.Repo.CocktailsRepo.TABLE_COCKTAILS;
+import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDIENTS;
+
 /**
  * Created by kynansong on 20/11/2017.
  */
@@ -29,7 +32,11 @@ public class DrinksRepo{
     }
 
     public static String createTable() {
-        return "CREATE TABLE " + TABLE_DRINKS + "(" + DRINK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COCKTAIL_ID + " INTEGER, " + INGREDIENT_ID + " INTEGER " + ")";
+        return "CREATE TABLE " + TABLE_DRINKS + "(" + DRINK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "  //Seems to be working.
+                + COCKTAIL_ID + " INTEGER, " + " FOREIGN KEY (COCKTAIL_ID) REFERENCES "
+                + TABLE_COCKTAILS + "(KEY_COCKTAIL_ID)"
+                + INGREDIENT_ID + " INTEGER " + " FOREIGN KEY (INGREDIENT_ID) REFERENCES "
+                + TABLE_INGREDIENTS + "(KEY_INGREDIENT_ID))";
     }
 
     public boolean insertDrink(SQLiteDatabase db, int cocktail_id, int ingredient_id) {
