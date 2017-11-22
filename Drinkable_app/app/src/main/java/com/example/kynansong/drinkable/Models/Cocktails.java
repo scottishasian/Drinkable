@@ -14,6 +14,7 @@ public class Cocktails {
     private Integer cocktailID;
     private String cocktailName;
     private String cocktailMeasurements;
+    private String cocktailDescription;
 
 //    public Cocktails(Integer cocktailID, String cocktailName, String cocktailMeasurements) {
 //        this.cocktailID = cocktailID;
@@ -45,6 +46,14 @@ public class Cocktails {
 
     public void setCocktailMeasurements(String measurements) {
         this.cocktailMeasurements = measurements;
+    }
+
+    public String getCocktailDescription() {
+        return this.cocktailDescription;
+    }
+
+    public void setCocktailDescription(String description) {
+        this.cocktailDescription = description;
     }
 
 }

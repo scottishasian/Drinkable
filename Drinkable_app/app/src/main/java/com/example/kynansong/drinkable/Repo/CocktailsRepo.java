@@ -31,6 +31,7 @@ public class CocktailsRepo {
     public static final String KEY_COCKTAIL_ID = "key_Cocktail_ID";
     public static final String COCKTAIL_NAME = "COCKTAIL_NAME";
     private static final String COCKTAIL_MEASUREMENTS = "COCKTAIL_MEASUREMENTS";
+    private static final String COCKTAIL_DESCRIPTION = "COCKTAIL_DESCRIPTION";
 
 
     private Cocktails cocktail;
@@ -43,31 +44,34 @@ public class CocktailsRepo {
     public static String createTable() {
         return "CREATE TABLE " + TABLE_COCKTAILS + "(" + KEY_COCKTAIL_ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COCKTAIL_NAME + " TEXT ,"
-                + COCKTAIL_MEASUREMENTS + " TEXT " + ")";
+                + COCKTAIL_MEASUREMENTS + " TEXT " + COCKTAIL_DESCRIPTION + " TEXT " + ")";
     }
 
-    public boolean insertCocktails(SQLiteDatabase db, String name, String measurements) {
+    public boolean insertCocktails(SQLiteDatabase db, String name, String measurements, String description) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COCKTAIL_NAME, name);
         contentValues.put(COCKTAIL_MEASUREMENTS, measurements);
+        contentValues.put(COCKTAIL_DESCRIPTION, description)
 ;        long result = db.insert(TABLE_COCKTAILS, null, contentValues);
 
         return result != -1;
     }
 
     public void CocktailSeeds(SQLiteDatabase db) {
-        insertCocktails(db,"Mojito", "50ml Rum, 8 Mint leaves, 15ml Gomme, 25ml Lime");
+        insertCocktails(db,"Mojito", "50ml Rum, 8 Mint leaves, 15ml Gomme, 25ml Lime"
+        , "Muddle the lime, sugar and mint, then stir in the rum over crushed ice. Finish with Soda.");
 
-        insertCocktails(db,"Old Fashioned", "50ml Bourbon, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters");
+        insertCocktails(db,"Old Fashioned", "50ml Bourbon, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters"
+        ,"Muddle the sugar and bitters into a treacle, then stir in the bourbon over ice.");
 
-        insertCocktails(db,"Paloma", "50ml Tequila, 12.5ml Lime Juice, 75ml Grapefruit Juice/Soda, 12.5ml Agave, salt rim");
+        insertCocktails(db,"Paloma", "50ml Tequila, 12.5ml Lime Juice, 75ml Grapefruit Juice/Soda, 12.5ml Agave, salt rim"
+        , "Build and stir in glass over ice.");
 
-        insertCocktails(db,"Whisky Mac", "50ml Whisky, 25ml Ginger Wine");
+        insertCocktails(db,"Whisky Mac", "50ml Whisky, 25ml Ginger Wine"
+        ,"Build and stir in glass over ice.");
 
 
     }
-
-
 
 
     public ArrayList<Cocktails> getListOfCocktails(int ingredientId) {
@@ -93,11 +97,11 @@ public class CocktailsRepo {
 
         if(cursor.moveToFirst()) {
             do {
-                String measurments = cursor.getString(2);
+                String measurements = cursor.getString(2);
                 String name = cursor.getString(1);
                 Integer id = cursor.getInt(0);       //Had to change to int here.
                 Cocktails cocktail = new Cocktails();
-                cocktail.setCocktailMeasurements(measurments);
+                cocktail.setCocktailMeasurements(measurements);
                 cocktail.setCocktailName(name);
                 cocktail.setCocktailID(id);
                 cocktails.add(cocktail);
@@ -108,6 +112,27 @@ public class CocktailsRepo {
 
         return cocktails;
 
+    }
+
+    public String getCocktailInfo(int cocktailID) {
+        String stringID = Integer.toString(cocktailID);
+        String selectQuery = "SELECT " + COCKTAIL_DESCRIPTION + " FROM " + TABLE_COCKTAILS
+                                + " WHERE " + KEY_COCKTAIL_ID + " LIKE " + stringID;;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+
+        String description = "";
+
+        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+
+        if(cursor != null) {      //loops through rows and adds to the arraylist.
+                cursor.moveToFirst();
+                description = cursor.getString(cursor.getColumnIndex("COCKTAIL_DESCRIPTION"));
+            }
+        cursor.close();
+        db.close();
+
+        return description;
     }
 
 

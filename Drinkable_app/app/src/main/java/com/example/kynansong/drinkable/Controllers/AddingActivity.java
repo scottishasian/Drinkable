@@ -73,20 +73,21 @@ public class AddingActivity extends AppCompatActivity {
 //
 //    }
 
-    public void addCocktail() {
-        save_cocktail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isInserted = cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
-                        measurements.getText().toString());
-                if(isInserted = true) {
-                    Toast.makeText(AddingActivity.this, "Cocktail Added", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(AddingActivity.this, "Cocktail Not Added", Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-        );
-    }
+//
+//    public void addCocktail() {
+//        save_cocktail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                boolean isInserted = cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
+//                        measurements.getText().toString());
+//                if(isInserted = true) {
+//                    Toast.makeText(AddingActivity.this, "Cocktail Added", Toast.LENGTH_LONG).show();
+//                } else {
+//                    Toast.makeText(AddingActivity.this, "Cocktail Not Added", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        }
+//        );
+//    }
 
 }

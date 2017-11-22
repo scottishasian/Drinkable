@@ -26,8 +26,8 @@
         <activity
             android:name=".Controllers.AddingActivity"
             android:label="@string/cocktail_adding_title"
-            android:parentActivityName=".Controllers.ChoicesActivity"
-            ></activity>
+            android:parentActivityName=".Controllers.ChoicesActivity" />
+        <activity android:name=".Controllers.CocktailInfoActivity"></activity>
     </application>
 
 </manifest>

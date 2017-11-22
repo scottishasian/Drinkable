@@ -41,5 +41,10 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void cocktailGoesToInfo() {
+
     }
 }
