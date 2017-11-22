@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kynansong.drinkable.Models.CocktailAdaptor;
@@ -22,15 +24,15 @@ public class Cocktail_ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktail__list);
 
-        CocktailsRepo cocktailsRepo = new CocktailsRepo(this);
+        final CocktailsRepo cocktailsRepo = new CocktailsRepo(this);
 
         ListView cocktailListView = findViewById(R.id.cocktailList);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
 
-        Integer cocktailID = extras.getInt("cocktailID");
+        final Integer cocktailID = extras.getInt("cocktailID");
 
         ArrayList<Cocktails> cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
 
@@ -40,11 +42,22 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
 
 
+        cocktailListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
 
+                String info = cocktailsRepo.getCocktailInfo(cocktailID);
+
+                goToInfo.putExtra("info", info);
+
+
+
+                startActivity(goToInfo);
+            }
+        });
 
     }
 
-    public void cocktailGoesToInfo() {
 
-    }
 }

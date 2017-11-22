@@ -17,6 +17,7 @@ import java.util.List;
 
 import static com.example.kynansong.drinkable.Repo.CocktailsRepo.TABLE_COCKTAILS;
 
+import static com.example.kynansong.drinkable.Repo.DrinksRepo.TABLE_DRINKS;
 import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDIENTS;
 
 /**
@@ -27,7 +28,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 5030;
+    private static final int VERSION = 5035;
     CocktailsRepo cocktails;
     IngredientsRepo ingredients;
     DrinksRepo drinks;
@@ -67,7 +68,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COCKTAILS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INGREDIENTS);
-        db.execSQL("DROP TABLE IF EXISTS " + DrinksRepo.TABLE_DRINKS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DRINKS);
 
         onCreate(db);
 

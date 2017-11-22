@@ -11,4 +11,5 @@
     <string name="add_cocktail">Add Cocktail</string>
     <string name="save_button">Save</string>
     <string name="add_ingredient">Add Ingredient</string>
+    <string name="cocktail_info_title">Cocktail Information</string>
 </resources>

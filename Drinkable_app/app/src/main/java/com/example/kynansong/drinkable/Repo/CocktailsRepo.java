@@ -44,15 +44,16 @@ public class CocktailsRepo {
     public static String createTable() {
         return "CREATE TABLE " + TABLE_COCKTAILS + "(" + KEY_COCKTAIL_ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COCKTAIL_NAME + " TEXT ,"
-                + COCKTAIL_MEASUREMENTS + " TEXT " + COCKTAIL_DESCRIPTION + " TEXT " + ")";
+                + COCKTAIL_MEASUREMENTS + " TEXT, " + COCKTAIL_DESCRIPTION + " TEXT " + ")";
     }
 
     public boolean insertCocktails(SQLiteDatabase db, String name, String measurements, String description) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COCKTAIL_NAME, name);
         contentValues.put(COCKTAIL_MEASUREMENTS, measurements);
-        contentValues.put(COCKTAIL_DESCRIPTION, description)
-;        long result = db.insert(TABLE_COCKTAILS, null, contentValues);
+        contentValues.put(COCKTAIL_DESCRIPTION, description);
+
+        long result = db.insert(TABLE_COCKTAILS, null, contentValues);
 
         return result != -1;
     }
@@ -89,7 +90,7 @@ public class CocktailsRepo {
                 " = " + KEY_COCKTAIL_ID
                 + " INNER JOIN " + TABLE_INGREDIENTS + " ON " + KEY_INGREDIENT_ID +
                 " = " + INGREDIENT_ID
-                + " WHERE " + KEY_INGREDIENT_ID + " LIKE " + stringID;
+                + " WHERE " + KEY_INGREDIENT_ID + " = " + stringID;
 
 
 
@@ -97,11 +98,11 @@ public class CocktailsRepo {
 
         if(cursor.moveToFirst()) {
             do {
-                String measurements = cursor.getString(2);
+                String measurement = cursor.getString(2);
                 String name = cursor.getString(1);
                 Integer id = cursor.getInt(0);       //Had to change to int here.
                 Cocktails cocktail = new Cocktails();
-                cocktail.setCocktailMeasurements(measurements);
+                cocktail.setCocktailMeasurements(measurement);
                 cocktail.setCocktailName(name);
                 cocktail.setCocktailID(id);
                 cocktails.add(cocktail);
@@ -138,9 +139,3 @@ public class CocktailsRepo {
 
 }
 
-//    String cocktailList = " SELECT KEY_COCKTAIL_ID " + KEY_COCKTAIL_ID +
-//            "," + COCKTAIL_NAME + " FROM " + TABLE_INGREDIENTS
-//            + "INNER JOIN " + TABLE_COCKTAILS + " ON " + KEY_COCKTAIL_ID +
-//            "= DrinksRepo." + COCKTAIL_ID
-//            + "INNER JOIN " + "DrinksRepo." + INGREDIENT_ID +
-//            "= " + stringID;
