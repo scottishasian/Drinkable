@@ -30,7 +30,6 @@ public class CocktailsRepo {
 
     public CocktailsRepo(Context context) {
         this.context = context;
-        this.cocktail = new Cocktails();
     }
 
     public static String createTable() {

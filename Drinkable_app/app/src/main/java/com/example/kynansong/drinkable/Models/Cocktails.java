@@ -11,20 +11,27 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Cocktails {
 
 
-    private String cocktailID;
+    private Integer cocktailID;
     private String cocktailName;
     private String cocktailDescription;
 
-    public String getCocktailID() {
-        return cocktailID;
+    public Cocktails(Integer cocktailID, String cocktailName, String cocktailDescription) {
+        this.cocktailID = cocktailID;
+        this.cocktailName = cocktailName;
+        this.cocktailDescription = cocktailDescription;
+
+    }
+
+    public Integer getCocktailID() {
+        return this.cocktailID;
     }
 
     public String getCocktailName() {
-        return cocktailName;
+        return this.cocktailName;
     }
 
     public String getCocktailDescription() {
-        return cocktailDescription;
+        return this.cocktailDescription;
     }
 
 }

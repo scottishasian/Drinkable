@@ -7,7 +7,7 @@
     tools:context="com.example.kynansong.drinkable.Controllers.AddingActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/add_measurements"
         android:layout_width="241dp"
         android:layout_height="81dp"
         android:layout_marginBottom="8dp"
@@ -54,7 +54,7 @@
         android:ems="10"
         android:hint="@string/example_measurements"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_cocktail"
         app:layout_constraintVertical_bias="0.127" />
@@ -67,7 +67,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="56dp"
         android:text="@string/new_measurements"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/add_measurements"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ingredient2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/add_measurements" />
 
     <Spinner
         android:id="@+id/ingredient2"
@@ -104,7 +104,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

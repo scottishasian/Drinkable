@@ -89,22 +89,22 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         return ingredients;
     }
 
-    public List<String> getAllCocktails() {
-        List<String> cocktails = new ArrayList();
-        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS; // need to select all for cursor to run through indexes.
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
-
-        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
-            do {
-                cocktails.add(cursor.getString(1));
-            }while(cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
-
-        return cocktails;
-    }
+//    public List<String> getAllCocktails() {
+//        List<String> cocktails = new ArrayList();
+//        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS; // need to select all for cursor to run through indexes.
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+//
+//        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
+//            do {
+//                cocktails.add(cursor.getString(1));
+//            }while(cursor.moveToNext());
+//        }
+//        cursor.close();
+//        db.close();
+//
+//        return cocktails;
+//    }
 
 
 
