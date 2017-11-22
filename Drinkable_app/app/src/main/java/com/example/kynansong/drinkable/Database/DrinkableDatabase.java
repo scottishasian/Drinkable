@@ -81,7 +81,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
             do {
                 String name = cursor.getString(1);
-                String id = cursor.getString(0);
+                Integer id = cursor.getInt(0);       //Had to change to int here.
                 Ingredients ingredient = new Ingredients();
                 ingredient.setIngredientName(name);
                 ingredient.setingredientID(id);
@@ -96,26 +96,4 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         return ingredients;
     }
 
-//    public List<String> getAllCocktails() {
-//        List<String> cocktails = new ArrayList();
-//        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS; // need to select all for cursor to run through indexes.
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
-//
-//        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
-//            do {
-//                cocktails.add(cursor.getString(1));
-//            }while(cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//
-//        return cocktails;
-//    }
-
-
-
-
-
-    //Inserting data needs an inner-join and access to the drinks table.
 }

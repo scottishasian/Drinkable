@@ -58,8 +58,8 @@ public class CocktailsRepo {
 
 
 
-    public List<Cocktails> getListOfCocktails(int ingredientId) {
-        List<Cocktails> cocktails = new ArrayList();
+    public ArrayList<Cocktails> getListOfCocktails(int ingredientId) {
+        ArrayList<Cocktails> cocktails = new ArrayList();
         String cocktailList = " SELECT KEY_COCKTAIL_ID " + KEY_COCKTAIL_ID +
                              "," + COCKTAIL_NAME + " FROM " + IngredientsRepo.TABLE_INGREDIENTS
                              + "INNER JOIN " + TABLE_COCKTAILS + " ON " + KEY_COCKTAIL_ID +

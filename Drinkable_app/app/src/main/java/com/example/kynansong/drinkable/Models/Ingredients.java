@@ -18,7 +18,7 @@ import java.util.List;
 public class Ingredients {
 
 
-    private String ingredientID;
+    private Integer ingredientID;
     private String ingredientNAME;
 
     public Ingredients() {
@@ -26,7 +26,7 @@ public class Ingredients {
         this.ingredientNAME = ingredientNAME;
     }
 
-    public String getIngredientID() {
+    public Integer getIngredientID() {
         return ingredientID;
     }
 
@@ -39,7 +39,7 @@ public class Ingredients {
     }
 
 
-    public void setingredientID(String id) {
+    public void setingredientID(Integer id) {
         this.ingredientID = id;
     }
 }

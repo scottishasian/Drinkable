@@ -31,8 +31,8 @@ public class CocktailsTest {
     }
 
     @Test
-    public void canGetDescriptionTest() {
-        assertEquals("50ml Rum, 25ml lime, 10ml sugar", cocktails.getCocktailDescription());
+    public void canGetMeasurementsTest() {
+        assertEquals("50ml Rum, 25ml lime, 10ml sugar", cocktails.getCocktailMeasurements());
 
     }
 }

@@ -13,12 +13,12 @@ public class Cocktails {
 
     private Integer cocktailID;
     private String cocktailName;
-    private String cocktailDescription;
+    private String cocktailMeasurements;
 
-    public Cocktails(Integer cocktailID, String cocktailName, String cocktailDescription) {
+    public Cocktails(Integer cocktailID, String cocktailName, String cocktailMeasurements) {
         this.cocktailID = cocktailID;
         this.cocktailName = cocktailName;
-        this.cocktailDescription = cocktailDescription;
+        this.cocktailMeasurements = cocktailMeasurements;
 
     }
 
@@ -30,8 +30,8 @@ public class Cocktails {
         return this.cocktailName;
     }
 
-    public String getCocktailDescription() {
-        return this.cocktailDescription;
+    public String getCocktailMeasurements() {
+        return this.cocktailMeasurements;
     }
 
 }
