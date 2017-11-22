@@ -25,6 +25,7 @@ public class CocktailInfoActivity extends AppCompatActivity {
         CocktailsRepo cocktailsRepo = new CocktailsRepo(this);
 
         String cocktailInfo = extras.getString("info");
+        
 
         TextView cocktailInfoTextView = findViewById(R.id.cocktail_information);
 

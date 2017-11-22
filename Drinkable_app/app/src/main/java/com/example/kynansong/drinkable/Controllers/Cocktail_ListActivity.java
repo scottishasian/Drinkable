@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.kynansong.drinkable.Models.CocktailAdaptor;
 import com.example.kynansong.drinkable.Models.Cocktails;
@@ -18,15 +19,19 @@ import java.util.List;
 
 public class Cocktail_ListActivity extends AppCompatActivity {
 
+    ListView cocktailListView;
+    ArrayList<Cocktails> cocktailResult;
+    CocktailsRepo cocktailsRepo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktail__list);
 
-        final CocktailsRepo cocktailsRepo = new CocktailsRepo(this);
+        cocktailsRepo = new CocktailsRepo(this);
 
-        ListView cocktailListView = findViewById(R.id.cocktailList);
+        this.cocktailListView = findViewById(R.id.cocktailList);
 
         final Intent intent = getIntent();
 
@@ -34,7 +39,7 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
         final Integer cocktailID = extras.getInt("IngredientID");
 
-        ArrayList<Cocktails> cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
+        this.cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
 
         final CocktailAdaptor cocktailAdaptor = new CocktailAdaptor(this, cocktailResult);
 
@@ -42,22 +47,38 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
 
 
-        cocktailListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
+//        cocktailListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
+//
+//                String info = cocktailsRepo.getCocktailInfo(cocktailID);
+//
+//                goToInfo.putExtra("info", info);
+//
+//
+//
+//                startActivity(goToInfo);
+//            }
+//        });
+
+    }
+
+    public void getSelectedCocktailID(View listItemSelected) {
+
+        Cocktails selectedCocktail = (Cocktails) listItemSelected.getTag();
+
+        Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
+
+        String info = cocktailsRepo.getCocktailInfo(selectedCocktail.getCocktailID());
+
+        goToInfo.putExtra("info", info);
 
 
-                String info = cocktailsRepo.getCocktailInfo(1);
 
-                goToInfo.putExtra("info", info);
+        startActivity(goToInfo);
 
-
-
-                startActivity(goToInfo);
-            }
-        });
-
+//        Toast.makeText(this, selectedCocktail.getCocktailID(),Toast.LENGTH_SHORT).show();
     }
 
 

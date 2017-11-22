@@ -115,7 +115,7 @@ public class CocktailsRepo {
     public String getCocktailInfo(int cocktailID) {
         String stringID = Integer.toString(cocktailID);
         String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
-                                + " WHERE " + KEY_COCKTAIL_ID + " LIKE " + stringID;;
+                                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
         DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
         SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
 
