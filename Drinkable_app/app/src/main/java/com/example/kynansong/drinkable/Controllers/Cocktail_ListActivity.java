@@ -19,8 +19,6 @@ import java.util.List;
 
 public class Cocktail_ListActivity extends AppCompatActivity {
 
-    ListView cocktailListView;
-    ArrayList<Cocktails> cocktailResult;
     CocktailsRepo cocktailsRepo;
 
 
@@ -31,17 +29,17 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
         cocktailsRepo = new CocktailsRepo(this);
 
-        this.cocktailListView = findViewById(R.id.cocktailList);
+        ListView cocktailListView = findViewById(R.id.cocktailList);
 
-        final Intent intent = getIntent();
+        Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
 
-        final Integer cocktailID = extras.getInt("IngredientID");
+        Integer cocktailID = extras.getInt("IngredientID");
 
-        this.cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
+        ArrayList<Cocktails> cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
 
-        final CocktailAdaptor cocktailAdaptor = new CocktailAdaptor(this, cocktailResult);
+        CocktailAdaptor cocktailAdaptor = new CocktailAdaptor(this, cocktailResult);
 
         cocktailListView.setAdapter(cocktailAdaptor);
 
@@ -71,14 +69,13 @@ public class Cocktail_ListActivity extends AppCompatActivity {
         Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
 
         String info = cocktailsRepo.getCocktailInfo(selectedCocktail.getCocktailID());
+        String measurements = cocktailsRepo.getCocktailMeasurements(selectedCocktail.getCocktailID());
 
         goToInfo.putExtra("info", info);
-
-
+        goToInfo.putExtra("measurements", measurements);
 
         startActivity(goToInfo);
 
-//        Toast.makeText(this, selectedCocktail.getCocktailID(),Toast.LENGTH_SHORT).show();
     }
 
 

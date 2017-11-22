@@ -126,13 +126,34 @@ public class CocktailsRepo {
         if(cursor != null) {      //loops through rows and adds to the arraylist.
                 cursor.moveToFirst();
                 description = cursor.getString(cursor.getColumnIndex("COCKTAIL_DESCRIPTION"));
-//                description = cursor.getString(3);
             }
         cursor.close();
         db.close();
 
         return description;
     }
+
+    public String getCocktailMeasurements(int cocktailID) {    //Not DRY, could put into array with above and then use adaptor.
+        String stringID = Integer.toString(cocktailID);
+        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
+                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+
+        String measurements = "";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor != null) {     
+            cursor.moveToFirst();
+            measurements = cursor.getString(cursor.getColumnIndex("COCKTAIL_MEASUREMENTS"));
+        }
+        cursor.close();
+        db.close();
+
+        return measurements;
+    }
+
 
 
 

@@ -22,15 +22,17 @@ public class CocktailInfoActivity extends AppCompatActivity {
 
         Bundle extras = intent.getExtras();
 
-        CocktailsRepo cocktailsRepo = new CocktailsRepo(this);
 
         String cocktailInfo = extras.getString("info");
-        
+        String cocktailMeasurements = extras.getString("measurements");
+
 
         TextView cocktailInfoTextView = findViewById(R.id.cocktail_information);
+        TextView cocktailMeasurementTextView = findViewById(R.id.cocktail_measurements);
 
 
         cocktailInfoTextView.setText(cocktailInfo);
+        cocktailMeasurementTextView.setText(cocktailMeasurements);
 
     }
 
