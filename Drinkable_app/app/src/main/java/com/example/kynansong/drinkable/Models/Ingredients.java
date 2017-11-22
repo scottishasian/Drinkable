@@ -39,6 +39,7 @@ public class Ingredients {
     }
 
 
-
-
+    public void setingredientID(String id) {
+        this.ingredientID = id;
+    }
 }

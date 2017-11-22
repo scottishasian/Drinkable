@@ -29,7 +29,7 @@ public class ChoicesActivity extends AppCompatActivity {
     IngredientsRepo ingredientsRepo;
     Spinner ingredients;
 
-
+    List<Ingredients> items;
     Button submitButton;
 
 
@@ -54,10 +54,16 @@ public class ChoicesActivity extends AppCompatActivity {
     public void insertData() {
 
         DrinkableDatabase db = new DrinkableDatabase(this);
-        List<String> items = db.getAllIngredients();
+        this.items = db.getAllIngredients();
+
+        ArrayList<String> ingred = new ArrayList<>();
+
+        for(Ingredients ingredient : this.items) {
+            ingred.add(ingredient.getIngredientName());
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, items);
+                android.R.layout.simple_spinner_item, ingred);
 
         ingredients.setAdapter(adapter);
 
@@ -67,6 +73,14 @@ public class ChoicesActivity extends AppCompatActivity {
 
     public void onButtonClickChoices(View button) {
         Intent intent = new Intent(this, Cocktail_ListActivity.class);
+
+        int position = this.ingredients.getSelectedItemPosition();
+
+        String id = this.items.get(position).getIngredientID();
+
+
+        intent.putExtra("cocktailName", id);
+
 
         startActivity(intent);
     }

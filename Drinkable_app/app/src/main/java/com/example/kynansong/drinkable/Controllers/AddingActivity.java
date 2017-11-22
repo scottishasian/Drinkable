@@ -11,9 +11,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.kynansong.drinkable.Database.DrinkableDatabase;
+import com.example.kynansong.drinkable.Models.Ingredients;
 import com.example.kynansong.drinkable.R;
 import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddingActivity extends AppCompatActivity {
@@ -44,17 +46,24 @@ public class AddingActivity extends AppCompatActivity {
     }
 
     public void insertIngredients() {
-
-        DrinkableDatabase db = new DrinkableDatabase(this);
-
-        List<String> items = db.getAllIngredients();
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, items);
-
-        ingredients1.setAdapter(adapter);
-        ingredients2.setAdapter(adapter);
-        ingredients3.setAdapter(adapter);
+//
+//        DrinkableDatabase db = new DrinkableDatabase(this);
+//
+//        List<Ingredients> items = db.getAllIngredients();
+//
+//        ArrayList<String> ingred = new ArrayList<>();
+//
+//        for(Ingredients ingredient : this.items) {
+//            ingred.add(ingredient.getIngredientName());
+//        }
+//
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, items);
+//
+//        ingredients1.setAdapter(adapter);
+//        ingredients2.setAdapter(adapter);
+//        ingredients3.setAdapter(adapter);
 
     }
 //
