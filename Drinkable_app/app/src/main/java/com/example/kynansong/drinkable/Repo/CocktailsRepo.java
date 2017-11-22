@@ -60,6 +60,10 @@ public class CocktailsRepo {
 
         insertCocktails(db,"Old Fashioned", "50ml Bourbon, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters");
 
+        insertCocktails(db,"Paloma", "50ml Tequila, 12.5ml Lime Juice, 75ml Grapefruit Juice/Soda, 12.5ml Agave, salt rim");
+
+        insertCocktails(db,"Whisky Mac", "50ml Whisky, 25ml Ginger Wine");
+
 
     }
 
@@ -89,9 +93,11 @@ public class CocktailsRepo {
 
         if(cursor.moveToFirst()) {
             do {
+                String measurments = cursor.getString(2);
                 String name = cursor.getString(1);
                 Integer id = cursor.getInt(0);       //Had to change to int here.
                 Cocktails cocktail = new Cocktails();
+                cocktail.setCocktailMeasurements(measurments);
                 cocktail.setCocktailName(name);
                 cocktail.setCocktailID(id);
                 cocktails.add(cocktail);

@@ -10,13 +10,15 @@
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/save_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredient_list"
         tools:text="@string/save_button" />
 
     <TextView
@@ -25,10 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="60dp"
         android:text="@string/new_cocktail"
         app:layout_constraintEnd_toStartOf="@+id/add_cocktail"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,8 +38,8 @@
         android:id="@+id/add_cocktail"
         android:layout_width="211dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="@string/example_cocktail"
         android:inputType="textPersonName"
@@ -77,35 +79,37 @@
         android:id="@+id/ingredient1"
         android:layout_width="330dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/ingredient2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_measurements" />
 
-    <Spinner
-        android:id="@+id/ingredient2"
-        android:layout_width="330dp"
-        android:layout_height="32dp"
+    <Button
+        android:id="@+id/add_ingredient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/ingredient3"
+        android:layout_marginTop="8dp"
+        android:text="@string/add_ingredient"
+        app:layout_constraintBottom_toTopOf="@+id/ingredient_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredient1"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Spinner
-        android:id="@+id/ingredient3"
-        android:layout_width="332dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="8dp"
+    <ListView
+        android:id="@+id/ingredient_list"
+        android:layout_width="212dp"
+        android:layout_height="126dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="321dp" />
 
 </android.support.constraint.ConstraintLayout>

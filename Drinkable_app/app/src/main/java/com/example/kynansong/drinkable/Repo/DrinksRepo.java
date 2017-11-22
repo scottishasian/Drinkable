@@ -54,13 +54,22 @@ public class DrinksRepo{
     }
 
     public void drinksSeeds(SQLiteDatabase db) {
-        insertDrink(db,1,1);
-        insertDrink(db,1,5);
-        insertDrink(db,1,6);
-        insertDrink(db,1,7);
-        insertDrink(db,2,2);
-        insertDrink(db,2,6);
-        insertDrink(db,2,8);
+        insertDrink(db,1,4);
+        insertDrink(db,1,12);
+        insertDrink(db,1,14);
+        insertDrink(db,1,16);
+        insertDrink(db,2,1);
+        insertDrink(db,2,10);
+        insertDrink(db,2,16);
+        insertDrink(db,3, 5);
+        insertDrink(db,3, 9);
+        insertDrink(db,3, 11);
+        insertDrink(db,3, 14);
+        insertDrink(db,3, 15);
+        insertDrink(db,4, 3);
+        insertDrink(db,4, 7);
+
+
     }
 
 

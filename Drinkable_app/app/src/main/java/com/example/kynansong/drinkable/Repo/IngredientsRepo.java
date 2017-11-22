@@ -20,7 +20,7 @@ public class IngredientsRepo {
     //Ingredients table
     public static final String TAG = Ingredients.class.getSimpleName();
     public static final String TABLE_INGREDIENTS = "ingredients_table";
-    public static final String KEY_INGREDIENT_ID = "key_ingredient_ID";
+    public static final String KEY_INGREDIENT_ID = "key_ingredient_ID";   //not case sensitive, causes ambiguous name errors.
     private static final String INGREDIENT_NAME = "ingredient_NAME";
     private Context context;
 
@@ -45,16 +45,25 @@ public class IngredientsRepo {
     }
 
     public void IngredientSeeds(SQLiteDatabase db) {
-        insertIngredients(db,"Rum");
         insertIngredients(db,"Bourbon");
-        insertIngredients(db,"Vodka");
         insertIngredients(db,"Gin");
-        insertIngredients(db,"Lime Juice");
-        insertIngredients(db,"Sugar");
-        insertIngredients(db,"Mint");
-        insertIngredients(db,"Bitters");
-        insertIngredients(db,"Whisky");
+        insertIngredients(db,"Ginger Wine");
+        insertIngredients(db,"Rum");
         insertIngredients(db,"Tequila");
+        insertIngredients(db,"Vodka");
+        insertIngredients(db,"Whisky");
+        insertIngredients(db,"Apple");
+        insertIngredients(db,"Agave");
+        insertIngredients(db,"Bitters");
+        insertIngredients(db,"Grapefruit");
+        insertIngredients(db,"Mint");
+        insertIngredients(db,"Lemon");
+        insertIngredients(db,"Lime");
+        insertIngredients(db,"Salt");
+        insertIngredients(db,"Sugar");
+
+
+
     }
 
 
