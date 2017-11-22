@@ -37,6 +37,10 @@ public class CocktailAdaptor extends ArrayAdapter<Cocktails>{
 
         cocktail_measurements.setText(currentCocktailItem.getCocktailMeasurements());
 
+        TextView cocktail_number = listItemView.findViewById(R.id.id_cocktail);
+
+        cocktail_number.setText(currentCocktailItem.getCocktailID().toString());
+
         listItemView.setTag(currentCocktailItem);
 
         return listItemView;

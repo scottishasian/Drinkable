@@ -79,7 +79,7 @@ public class ChoicesActivity extends AppCompatActivity {
         Integer id = this.items.get(position).getIngredientID();
 
 
-        intent.putExtra("cocktailID", id);
+        intent.putExtra("IngredientID", id);
 
 
         startActivity(intent);

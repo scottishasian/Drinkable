@@ -80,10 +80,7 @@ public class CocktailsRepo {
         DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
         SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
         ArrayList<Cocktails> cocktails = new ArrayList();
-//        String cocktailList = "SELECT * FROM cocktails_table"
-//                                + "INNER JOIN drinks_table ON drinks_table.cocktail_id = cocktails_table.Cocktail_ID"
-//                                + "INNER JOIN ingredients_table ON ingredients_table.ingredient_ID = drinks_table.ingredient_id"
-//                                + "WHERE ingredients_table.ingredient_ID LIKE " + stringID;
+
 
         String cocktailList = " SELECT * FROM " + TABLE_COCKTAILS
                 + " INNER JOIN " + TABLE_DRINKS + " ON " + COCKTAIL_ID +
@@ -117,7 +114,7 @@ public class CocktailsRepo {
 
     public String getCocktailInfo(int cocktailID) {
         String stringID = Integer.toString(cocktailID);
-        String selectQuery = "SELECT " + COCKTAIL_DESCRIPTION + " FROM " + TABLE_COCKTAILS
+        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
                                 + " WHERE " + KEY_COCKTAIL_ID + " LIKE " + stringID;;
         DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
         SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
@@ -129,12 +126,14 @@ public class CocktailsRepo {
         if(cursor != null) {      //loops through rows and adds to the arraylist.
                 cursor.moveToFirst();
                 description = cursor.getString(cursor.getColumnIndex("COCKTAIL_DESCRIPTION"));
+//                description = cursor.getString(3);
             }
         cursor.close();
         db.close();
 
         return description;
     }
+
 
 
 }

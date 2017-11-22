@@ -32,11 +32,11 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
         Bundle extras = intent.getExtras();
 
-        final Integer cocktailID = extras.getInt("cocktailID");
+        final Integer cocktailID = extras.getInt("IngredientID");
 
         ArrayList<Cocktails> cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
 
-        CocktailAdaptor cocktailAdaptor = new CocktailAdaptor(this, cocktailResult);
+        final CocktailAdaptor cocktailAdaptor = new CocktailAdaptor(this, cocktailResult);
 
         cocktailListView.setAdapter(cocktailAdaptor);
 
@@ -47,7 +47,8 @@ public class Cocktail_ListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
 
-                String info = cocktailsRepo.getCocktailInfo(cocktailID);
+
+                String info = cocktailsRepo.getCocktailInfo(1);
 
                 goToInfo.putExtra("info", info);
 
