@@ -144,7 +144,7 @@ public class CocktailsRepo {
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        if(cursor != null) {     
+        if(cursor != null) {
             cursor.moveToFirst();
             measurements = cursor.getString(cursor.getColumnIndex("COCKTAIL_MEASUREMENTS"));
         }
