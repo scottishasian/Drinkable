@@ -17,7 +17,7 @@ public class CocktailsTest {
 
     @Before
     public void before() {
-        cocktails = new Cocktails(1, "Daiquiri", "50ml Rum, 25ml lime, 10ml sugar");
+        cocktails = new Cocktails();
     }
 
     @Test

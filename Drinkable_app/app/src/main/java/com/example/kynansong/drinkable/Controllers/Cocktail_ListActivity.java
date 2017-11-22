@@ -16,33 +16,25 @@ import java.util.List;
 
 public class Cocktail_ListActivity extends AppCompatActivity {
 
-    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktail__list);
 
-        CocktailsRepo cocktailsRepo = new CocktailsRepo(context);
+        CocktailsRepo cocktailsRepo = new CocktailsRepo(this);
+
+        ListView cocktailListView = findViewById(R.id.cocktailList);
 
         Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
 
-        Integer cocktailName = extras.getInt("cocktailName");
+        Integer cocktailID = extras.getInt("cocktailID");
 
-        ArrayList<Cocktails> cocktailResult = cocktailsRepo.getListOfCocktails(cocktailName);
+        ArrayList<Cocktails> cocktailResult = cocktailsRepo.getListOfCocktails(cocktailID);
 
         CocktailAdaptor cocktailAdaptor = new CocktailAdaptor(this, cocktailResult);
-
-
-
-
-
-        ListView cocktailListView = findViewById(R.id.cocktailList);
-
-
-
 
         cocktailListView.setAdapter(cocktailAdaptor);
 

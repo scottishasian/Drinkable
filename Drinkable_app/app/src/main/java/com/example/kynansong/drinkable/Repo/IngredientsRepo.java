@@ -20,8 +20,8 @@ public class IngredientsRepo {
     //Ingredients table
     public static final String TAG = Ingredients.class.getSimpleName();
     public static final String TABLE_INGREDIENTS = "ingredients_table";
-    public static final String KEY_INGREDIENT_ID = "INGREDIENT_ID";
-    private static final String INGREDIENT_NAME = "INGREDIENT_NAME";
+    public static final String KEY_INGREDIENT_ID = "key_ingredient_ID";
+    private static final String INGREDIENT_NAME = "ingredient_NAME";
     private Context context;
 
     private String ingredientID;

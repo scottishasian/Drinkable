@@ -2,14 +2,22 @@ package com.example.kynansong.drinkable.Repo;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.kynansong.drinkable.Database.DrinkableDatabase;
 import com.example.kynansong.drinkable.Models.Cocktails;
+import com.example.kynansong.drinkable.Models.Ingredients;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.kynansong.drinkable.Repo.DrinksRepo.COCKTAIL_ID;
+import static com.example.kynansong.drinkable.Repo.DrinksRepo.INGREDIENT_ID;
+import static com.example.kynansong.drinkable.Repo.DrinksRepo.TABLE_DRINKS;
+import static com.example.kynansong.drinkable.Repo.IngredientsRepo.KEY_INGREDIENT_ID;
+import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDIENTS;
 
 /**
  * Created by kynansong on 20/11/2017.
@@ -20,8 +28,8 @@ public class CocktailsRepo {
     //Cocktail table
     private static final String TAG = Cocktails.class.getSimpleName();
     public static final String TABLE_COCKTAILS = "cocktails_table";
-    public static final String KEY_COCKTAIL_ID = "Cocktail_ID";
-    private static final String COCKTAIL_NAME = "COCKTAIL_NAME";
+    public static final String KEY_COCKTAIL_ID = "key_Cocktail_ID";
+    public static final String COCKTAIL_NAME = "COCKTAIL_NAME";
     private static final String COCKTAIL_MEASUREMENTS = "COCKTAIL_MEASUREMENTS";
 
 
@@ -59,20 +67,49 @@ public class CocktailsRepo {
 
 
     public ArrayList<Cocktails> getListOfCocktails(int ingredientId) {
+        String stringID = Integer.toString(ingredientId);
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
         ArrayList<Cocktails> cocktails = new ArrayList();
-        String cocktailList = " SELECT KEY_COCKTAIL_ID " + KEY_COCKTAIL_ID +
-                             "," + COCKTAIL_NAME + " FROM " + IngredientsRepo.TABLE_INGREDIENTS
-                             + "INNER JOIN " + TABLE_COCKTAILS + " ON " + KEY_COCKTAIL_ID +
-                             "= DrinksRepo." + DrinksRepo.COCKTAIL_ID
-                             + "INNER JOIN " + "DrinksRepo." + DrinksRepo.INGREDIENT_ID +
-                             "= " + ingredientId;
+//        String cocktailList = "SELECT * FROM cocktails_table"
+//                                + "INNER JOIN drinks_table ON drinks_table.cocktail_id = cocktails_table.Cocktail_ID"
+//                                + "INNER JOIN ingredients_table ON ingredients_table.ingredient_ID = drinks_table.ingredient_id"
+//                                + "WHERE ingredients_table.ingredient_ID LIKE " + stringID;
+
+        String cocktailList = " SELECT * FROM " + TABLE_COCKTAILS
+                + " INNER JOIN " + TABLE_DRINKS + " ON " + COCKTAIL_ID +
+                " = " + KEY_COCKTAIL_ID
+                + " INNER JOIN " + TABLE_INGREDIENTS + " ON " + KEY_INGREDIENT_ID +
+                " = " + INGREDIENT_ID
+                + " WHERE " + KEY_INGREDIENT_ID + " LIKE " + stringID;
 
 
+
+        Cursor cursor = db.rawQuery(cocktailList, null); // Class to represent mouse cursor.
+
+        if(cursor.moveToFirst()) {
+            do {
+                String name = cursor.getString(1);
+                Integer id = cursor.getInt(0);       //Had to change to int here.
+                Cocktails cocktail = new Cocktails();
+                cocktail.setCocktailName(name);
+                cocktail.setCocktailID(id);
+                cocktails.add(cocktail);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
 
         return cocktails;
-
 
     }
 
 
 }
+
+//    String cocktailList = " SELECT KEY_COCKTAIL_ID " + KEY_COCKTAIL_ID +
+//            "," + COCKTAIL_NAME + " FROM " + TABLE_INGREDIENTS
+//            + "INNER JOIN " + TABLE_COCKTAILS + " ON " + KEY_COCKTAIL_ID +
+//            "= DrinksRepo." + COCKTAIL_ID
+//            + "INNER JOIN " + "DrinksRepo." + INGREDIENT_ID +
+//            "= " + stringID;

@@ -15,23 +15,36 @@ public class Cocktails {
     private String cocktailName;
     private String cocktailMeasurements;
 
-    public Cocktails(Integer cocktailID, String cocktailName, String cocktailMeasurements) {
-        this.cocktailID = cocktailID;
-        this.cocktailName = cocktailName;
-        this.cocktailMeasurements = cocktailMeasurements;
-
-    }
+//    public Cocktails(Integer cocktailID, String cocktailName, String cocktailMeasurements) {
+//        this.cocktailID = cocktailID;
+//        this.cocktailName = cocktailName;
+//        this.cocktailMeasurements = cocktailMeasurements;
+//
+//    }
 
     public Integer getCocktailID() {
         return this.cocktailID;
+    }
+
+    public void setCocktailID(Integer ID){
+        this.cocktailID = ID;
     }
 
     public String getCocktailName() {
         return this.cocktailName;
     }
 
+    public void setCocktailName(String name){
+        this.cocktailName = name;
+
+    }
+
     public String getCocktailMeasurements() {
         return this.cocktailMeasurements;
+    }
+
+    public void setCocktailMeasurements(String measurements) {
+        this.cocktailMeasurements = measurements;
     }
 
 }
