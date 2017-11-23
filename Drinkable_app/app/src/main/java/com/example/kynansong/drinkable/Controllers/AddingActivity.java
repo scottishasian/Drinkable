@@ -1,6 +1,7 @@
 package com.example.kynansong.drinkable.Controllers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class AddingActivity extends AppCompatActivity {
     private CocktailsRepo cocktailsRepo;
     private DrinksRepo drinksRepo;
     private EditText name, measurements, description;
-    private Button save_cocktail;
+    private Button save_cocktail, add_ingredient;
     private List<Ingredients> items;
     private ArrayList<Ingredients> new_cocktail;
     private DrinkableDatabase db;
@@ -36,6 +37,8 @@ public class AddingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adding);
+
+        new_cocktail = new ArrayList();
 
         ingredients1 = (Spinner) findViewById(R.id.ingredient1);
 
@@ -47,13 +50,15 @@ public class AddingActivity extends AppCompatActivity {
         measurements = (EditText) findViewById(R.id.add_measurements);
         description = (EditText) findViewById(R.id.add_description);
         save_cocktail = (Button) findViewById(R.id.save_button);
+        add_ingredient = (Button) findViewById(R.id.add_ingredient);
 
         insertIngredients();
+        onClickAddCocktail();
     }
 
     public void insertIngredients() {
 
-         this.items = db.getAllIngredients();
+        this.items = db.getAllIngredients();
 
         ArrayList<String> ingred = new ArrayList<>();
 
@@ -71,14 +76,26 @@ public class AddingActivity extends AppCompatActivity {
 
     //Write a function to create a list of ingredients that are then saved when saving the new cocktail info.
 
-    public ArrayList<Ingredients> addIngredientsList(Ingredients ingredient){
-            new_cocktail = new ArrayList<Ingredients>();
-            new_cocktail.add(ingredient);
-            return new_cocktail;
-    }
+//    public void addIngredientsList(Ingredients ingredient){
+//            this.new_cocktail.add(ingredient);
+//    }
+//
+//    public void addIngredientToList(View button) {
+//        add_ingredient.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int position = this.ingredients1.getSelectedItemPosition();
+//                boolean isAdded = addIngredientsList();
+//            }
+//        });
+//
+//
+//        }
 
 
-    public void addCocktail() {
+
+
+    public void onClickAddCocktail() {
         save_cocktail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
