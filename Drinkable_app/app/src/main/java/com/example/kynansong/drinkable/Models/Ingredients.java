@@ -21,7 +21,7 @@ public class Ingredients {
     private Integer ingredientID;
     private String ingredientNAME;
 
-    public Ingredients() {
+    public Ingredients(Integer ingredientID, String ingredientNAME) {
         this.ingredientID = ingredientID;
         this.ingredientNAME = ingredientNAME;
     }

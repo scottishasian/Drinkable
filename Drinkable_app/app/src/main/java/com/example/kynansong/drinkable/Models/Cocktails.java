@@ -16,12 +16,13 @@ public class Cocktails {
     private String cocktailMeasurements;
     private String cocktailDescription;
 
-//    public Cocktails(Integer cocktailID, String cocktailName, String cocktailMeasurements) {
-//        this.cocktailID = cocktailID;
-//        this.cocktailName = cocktailName;
-//        this.cocktailMeasurements = cocktailMeasurements;
-//
-//    }
+    public Cocktails(Integer cocktailID, String cocktailName, String cocktailMeasurements, String cocktailDescription) {
+        this.cocktailID = cocktailID;
+        this.cocktailName = cocktailName;
+        this.cocktailMeasurements = cocktailMeasurements;
+        this.cocktailDescription = cocktailDescription;
+
+    }
 
     public Integer getCocktailID() {
         return this.cocktailID;

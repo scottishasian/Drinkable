@@ -28,7 +28,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 5043;
+    private static final int VERSION = 5045;
     CocktailsRepo cocktails;
     IngredientsRepo ingredients;
     DrinksRepo drinks;
@@ -84,9 +84,9 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
             do {
                 String name = cursor.getString(1);
                 Integer id = cursor.getInt(0);       //Had to change to int here.
-                Ingredients ingredient = new Ingredients();
-                ingredient.setIngredientName(name);
-                ingredient.setingredientID(id);
+                Ingredients ingredient = new Ingredients(id, name);
+//                ingredient.setIngredientName(name);
+//                ingredient.setingredientID(id);
 
                 ingredients.add(ingredient);
 //                ingredients.add(cursor.getString(1));

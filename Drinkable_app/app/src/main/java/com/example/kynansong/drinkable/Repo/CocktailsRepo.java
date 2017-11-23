@@ -95,13 +95,11 @@ public class CocktailsRepo {
 
         if(cursor.moveToFirst()) {
             do {
+                String description = cursor.getString(3);
                 String measurement = cursor.getString(2);
                 String name = cursor.getString(1);
                 Integer id = cursor.getInt(0);       //Had to change to int here.
-                Cocktails cocktail = new Cocktails();
-                cocktail.setCocktailMeasurements(measurement);
-                cocktail.setCocktailName(name);
-                cocktail.setCocktailID(id);
+                Cocktails cocktail = new Cocktails(id, name, measurement, description);
                 cocktails.add(cocktail);
             }while(cursor.moveToNext());
         }
@@ -221,11 +219,7 @@ public class CocktailsRepo {
                 String measurement = cursor.getString(2);
                 String name = cursor.getString(1);
                 Integer id = cursor.getInt(0);       //Had to change to int here.
-                Cocktails cocktail = new Cocktails();
-                cocktail.setCocktailDescription(description);
-                cocktail.setCocktailMeasurements(measurement);
-                cocktail.setCocktailName(name);
-                cocktail.setCocktailID(id);
+                Cocktails cocktail = new Cocktails(id, name, measurement, description);
                 cocktails.add(cocktail);
             }while(cursor.moveToNext());
         }
@@ -235,17 +229,18 @@ public class CocktailsRepo {
         return cocktails;
     }
 
-//    public void deleteCocktail(int cocktailID) {
-//        String stringID = Integer.toString(cocktailID);
-//        List<Cocktails> cocktails = new ArrayList();
-//        String selectQuery = "DELETE FROM " + TABLE_COCKTAILS
-//                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
-//        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
-//        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
-//
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//    }
+    public void deleteCocktail(int cocktailID) {
+        String stringID = Integer.toString(cocktailID);
+
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_COCKTAILS
+                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID);
+
+        db.close();
+
+
+    }
 
 
 
