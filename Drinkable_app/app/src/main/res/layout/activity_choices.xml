@@ -34,26 +34,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="cursive"
         android:onClick="onButtonClickChoices"
         android:text="Go"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredient_choice"
         app:layout_constraintVertical_bias="0.872" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="335dp"
-        android:layout_height="251dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/submit_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredient_choice"
-        app:srcCompat="@mipmap/choicesbackground" />
 
 </android.support.constraint.ConstraintLayout>

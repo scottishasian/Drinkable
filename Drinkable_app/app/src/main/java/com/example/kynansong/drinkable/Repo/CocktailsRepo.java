@@ -154,6 +154,59 @@ public class CocktailsRepo {
         return measurements;
     }
 
+    public String getCocktailName(int cocktailID) {    //Not DRY, could put into array with above and then use adaptor.
+        String stringID = Integer.toString(cocktailID);
+        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
+                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+
+        String name = "";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor != null) {
+            cursor.moveToFirst();
+            name = cursor.getString(cursor.getColumnIndex("COCKTAIL_NAME"));
+        }
+        cursor.close();
+        db.close();
+
+        return name;
+    }
+
+//    public ArrayList<Cocktails> getCocktailInfoDescriptionsPage(int cocktailID) {     //To make dryer code.
+//        String stringID = Integer.toString(cocktailID);
+//        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
+//                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
+//        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+//        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+//        ArrayList<Cocktails> cocktails = new ArrayList();
+//
+//        String measurements = "";
+//
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//        if(cursor.moveToFirst()) {
+//            do {
+//                String description = cursor.getString(3);
+//                String measurement = cursor.getString(2);
+//                String name = cursor.getString(1);
+//                Integer id = cursor.getInt(0);       //Had to change to int here.
+//                Cocktails cocktail = new Cocktails();
+//                cocktail.setCocktailDescription(description);
+//                cocktail.setCocktailMeasurements(measurement);
+//                cocktail.setCocktailName(name);
+//                cocktail.setCocktailID(id);
+//                cocktails.add(cocktail);
+//            }while(cursor.moveToNext());
+//        }
+//        cursor.close();
+//        db.close();
+//
+//        return cocktails;
+//    }
+
 
 
 

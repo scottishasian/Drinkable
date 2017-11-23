@@ -22,13 +22,14 @@ import java.util.List;
 
 public class AddingActivity extends AppCompatActivity {
 
-    Spinner ingredients1;
-    CocktailsRepo cocktailsRepo;
-    DrinksRepo drinksRepo;
-    EditText name, measurements;
-    Button save_cocktail;
-    List<Ingredients> items;
-    DrinkableDatabase db;
+    private Spinner ingredients1;
+    private CocktailsRepo cocktailsRepo;
+    private DrinksRepo drinksRepo;
+    private EditText name, measurements, description;
+    private Button save_cocktail;
+    private List<Ingredients> items;
+    private ArrayList<Ingredients> new_cocktail;
+    private DrinkableDatabase db;
 
 
     @Override
@@ -44,6 +45,7 @@ public class AddingActivity extends AppCompatActivity {
 
         name = (EditText) findViewById(R.id.add_cocktail);
         measurements = (EditText) findViewById(R.id.add_measurements);
+        description = (EditText) findViewById(R.id.add_description);
         save_cocktail = (Button) findViewById(R.id.save_button);
 
         insertIngredients();
@@ -69,25 +71,27 @@ public class AddingActivity extends AppCompatActivity {
 
     //Write a function to create a list of ingredients that are then saved when saving the new cocktail info.
 
-//    public ArrayList<Ingredients> addIngredientsList(){
-//
-//    }
+    public ArrayList<Ingredients> addIngredientsList(Ingredients ingredient){
+            new_cocktail = new ArrayList<Ingredients>();
+            new_cocktail.add(ingredient);
+            return new_cocktail;
+    }
 
-//
-//    public void addCocktail() {
-//        save_cocktail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                boolean isInserted = cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
-//                        measurements.getText().toString());
-//                if(isInserted = true) {
-//                    Toast.makeText(AddingActivity.this, "Cocktail Added", Toast.LENGTH_LONG).show();
-//                } else {
-//                    Toast.makeText(AddingActivity.this, "Cocktail Not Added", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        }
-//        );
-//    }
+
+    public void addCocktail() {
+        save_cocktail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isInserted = cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
+                        measurements.getText().toString(), description.getText().toString());
+                if(isInserted = true) {
+                    Toast.makeText(AddingActivity.this, "Cocktail Added", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(AddingActivity.this, "Cocktail Not Added", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+        );
+    }
 
 }

@@ -44,22 +44,6 @@ public class Cocktail_ListActivity extends AppCompatActivity {
         cocktailListView.setAdapter(cocktailAdaptor);
 
 
-
-//        cocktailListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent goToInfo = new Intent(Cocktail_ListActivity.this, CocktailInfoActivity.class);
-//
-//                String info = cocktailsRepo.getCocktailInfo(cocktailID);
-//
-//                goToInfo.putExtra("info", info);
-//
-//
-//
-//                startActivity(goToInfo);
-//            }
-//        });
-
     }
 
     public void getSelectedCocktailID(View listItemSelected) {
@@ -70,9 +54,11 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
         String info = cocktailsRepo.getCocktailInfo(selectedCocktail.getCocktailID());
         String measurements = cocktailsRepo.getCocktailMeasurements(selectedCocktail.getCocktailID());
+        String name = cocktailsRepo.getCocktailName(selectedCocktail.getCocktailID());
 
         goToInfo.putExtra("info", info);
         goToInfo.putExtra("measurements", measurements);
+        goToInfo.putExtra("name", name);
 
         startActivity(goToInfo);
 

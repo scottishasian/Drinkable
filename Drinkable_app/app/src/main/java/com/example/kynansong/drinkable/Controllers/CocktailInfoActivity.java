@@ -25,14 +25,17 @@ public class CocktailInfoActivity extends AppCompatActivity {
 
         String cocktailInfo = extras.getString("info");
         String cocktailMeasurements = extras.getString("measurements");
+        String cocktailName = extras.getString("name");
 
 
         TextView cocktailInfoTextView = findViewById(R.id.cocktail_information);
         TextView cocktailMeasurementTextView = findViewById(R.id.cocktail_measurements);
+        TextView cocktailNameTextView = findViewById(R.id.name_of_cocktail);
 
 
         cocktailInfoTextView.setText(cocktailInfo);
         cocktailMeasurementTextView.setText(cocktailMeasurements);
+        cocktailNameTextView.setText(cocktailName);
 
     }
 
