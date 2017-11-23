@@ -76,24 +76,31 @@ public class AddingActivity extends AppCompatActivity {
 
     //Write a function to create a list of ingredients that are then saved when saving the new cocktail info.
 
-//    public void addIngredientsList(Ingredients ingredient){
-//            this.new_cocktail.add(ingredient);
-//    }
-//
-//    public void addIngredientToList(View button) {
-//        add_ingredient.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int position = this.ingredients1.getSelectedItemPosition();
-//                boolean isAdded = addIngredientsList();
-//            }
-//        });
-//
-//
-//        }
+
+    public void addIngredientToList(View button) {
+        add_ingredient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int position = ingredients1.getSelectedItemPosition();
+                Ingredients ingredientsObject = items.get(position);
+                new_cocktail.add(ingredientsObject);
+
+                Toast.makeText(AddingActivity.this, "Ingredient Added " + new_cocktail.size(), Toast.LENGTH_LONG).show();
+
+            }
+        });
 
 
+    }
 
+    public ArrayList<Integer> getIngredientsListIds() {
+        ArrayList<Integer> ids = new ArrayList<>();
+        for(Ingredients id : new_cocktail) {
+            ids.add(id.getIngredientID());
+        }
+        return ids;
+    }
 
     public void onClickAddCocktail() {
         save_cocktail.setOnClickListener(new View.OnClickListener() {
