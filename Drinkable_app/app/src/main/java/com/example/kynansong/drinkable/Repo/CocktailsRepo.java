@@ -71,6 +71,13 @@ public class CocktailsRepo {
         insertCocktails(db,"Whisky Mac", "50ml Whisky, 25ml Ginger Wine"
         ,"Build and stir in glass over ice.");
 
+        insertCocktails(db,"Daiquiri", "50ml Rum, 12.5ml Cointreau, 12.5ml Lime"
+        ,"Add to shaker then double strain into glass.");
+
+        insertCocktails(db,"Espresso Martini", "25ml Vodka, 25ml Kahlua, 50ml Coffee"
+                ,"Add to shaker, shake well, then double strain into glass.");
+
+
 
     }
 

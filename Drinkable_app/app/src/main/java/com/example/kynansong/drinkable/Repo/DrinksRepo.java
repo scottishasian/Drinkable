@@ -68,6 +68,12 @@ public class DrinksRepo{
         insertDrink(db,3, 15);
         insertDrink(db,4, 3);
         insertDrink(db,4, 7);
+        insertDrink(db,5, 4);
+        insertDrink(db,5, 14);
+        insertDrink(db,5, 19);
+        insertDrink(db,6, 6);
+        insertDrink(db,6, 18);
+        insertDrink(db,6, 17);
 
 
     }

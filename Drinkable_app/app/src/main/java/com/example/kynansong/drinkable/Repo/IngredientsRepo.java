@@ -61,6 +61,9 @@ public class IngredientsRepo {
         insertIngredients(db,"Lime");
         insertIngredients(db,"Salt");
         insertIngredients(db,"Sugar");
+        insertIngredients(db,"Coffee");
+        insertIngredients(db,"Kahlua");
+        insertIngredients(db,"Cointreau"); //19
 
 
 
