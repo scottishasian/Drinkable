@@ -238,7 +238,7 @@ public class CocktailsRepo {
 //    public void deleteCocktail(int cocktailID) {
 //        String stringID = Integer.toString(cocktailID);
 //        List<Cocktails> cocktails = new ArrayList();
-//        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
+//        String selectQuery = "DELETE FROM " + TABLE_COCKTAILS
 //                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
 //        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
 //        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();

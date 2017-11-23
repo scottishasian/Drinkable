@@ -15,4 +15,6 @@
     <string name="example_description">Add ingredients to glass and stir over ice.</string>
     <string name="ingred_added">Add Ingredient to Cocktail</string>
     <string name="cocktail_add_ingred_title">Add Ingredients to Cocktail</string>
+    <string name="cocktail_delete_title">Delete Cocktail</string>
+    <string name="delete_cocktail">Delete Cocktail</string>
 </resources>

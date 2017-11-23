@@ -98,6 +98,9 @@ public class ChoicesActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.action_add_cocktail) {
             Intent intent = new Intent(this, AddingActivity.class);
             startActivity(intent);
+        } else if(item.getItemId() == R.id.action_delete_cocktail) {
+            Intent intent = new Intent(this, DeleteActivity.class);
+            startActivity(intent);
         }
         return true;
     }

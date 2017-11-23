@@ -34,7 +34,11 @@
         <activity
             android:name=".Controllers.AddIngredientsToCocktailActivity"
             android:label="@string/cocktail_add_ingred_title"
-            android:parentActivityName=".Controllers.AddingActivity" ></activity>
+            android:parentActivityName=".Controllers.AddingActivity" />
+        <activity
+            android:name=".Controllers.DeleteActivity"
+            android:label="@string/cocktail_delete_title"
+            android:parentActivityName=".Controllers.ChoicesActivity"></activity>
     </application>
 
 </manifest>
