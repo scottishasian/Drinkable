@@ -207,6 +207,47 @@ public class CocktailsRepo {
 //        return cocktails;
 //    }
 
+        public List<Cocktails> getAllCocktails() {
+        List<Cocktails> cocktails = new ArrayList();
+        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                String description = cursor.getString(3);
+                String measurement = cursor.getString(2);
+                String name = cursor.getString(1);
+                Integer id = cursor.getInt(0);       //Had to change to int here.
+                Cocktails cocktail = new Cocktails();
+                cocktail.setCocktailDescription(description);
+                cocktail.setCocktailMeasurements(measurement);
+                cocktail.setCocktailName(name);
+                cocktail.setCocktailID(id);
+                cocktails.add(cocktail);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return cocktails;
+    }
+
+//    public void deleteCocktail(int cocktailID) {
+//        String stringID = Integer.toString(cocktailID);
+//        List<Cocktails> cocktails = new ArrayList();
+//        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
+//                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
+//        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+//        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+//
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//    }
+
+
 
 
 

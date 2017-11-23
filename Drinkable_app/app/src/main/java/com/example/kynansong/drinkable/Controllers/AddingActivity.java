@@ -23,13 +23,11 @@ import java.util.List;
 
 public class AddingActivity extends AppCompatActivity {
 
-    private Spinner ingredients1;
+
     private CocktailsRepo cocktailsRepo;
     private DrinksRepo drinksRepo;
     private EditText name, measurements, description;
     private Button save_cocktail, add_ingredient;
-    private List<Ingredients> items;
-    private ArrayList<Ingredients> new_cocktail;
     private DrinkableDatabase db;
 
 
@@ -37,10 +35,6 @@ public class AddingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adding);
-
-        new_cocktail = new ArrayList();
-
-        ingredients1 = (Spinner) findViewById(R.id.ingredient1);
 
         cocktailsRepo = new CocktailsRepo(this);
         drinksRepo = new DrinksRepo(this);
@@ -52,54 +46,41 @@ public class AddingActivity extends AppCompatActivity {
         save_cocktail = (Button) findViewById(R.id.save_button);
         add_ingredient = (Button) findViewById(R.id.add_ingredient);
 
-        insertIngredients();
         onClickAddCocktail();
-    }
-
-    public void insertIngredients() {
-
-        this.items = db.getAllIngredients();
-
-        ArrayList<String> ingred = new ArrayList<>();
-
-        for(Ingredients ingredient : this.items) {
-            ingred.add(ingredient.getIngredientName());
-        }
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, ingred);
-
-        ingredients1.setAdapter(adapter);
-
     }
 
     //Write a function to create a list of ingredients that are then saved when saving the new cocktail info.
 
 
-    public void addIngredientToList(View button) {
-        add_ingredient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//    public void addIngredientToList(View button) {
+//        add_ingredient.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                int position = ingredients1.getSelectedItemPosition();
+//                Ingredients ingredientsObject = items.get(position);
+//                new_cocktail.add(ingredientsObject);
+//
+//                Toast.makeText(AddingActivity.this, "Ingredient Added " + new_cocktail.size(), Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//
+//
+//    }
+//
+//    public ArrayList<Integer> getIngredientsListIds() {
+//        ArrayList<Integer> ids = new ArrayList<>();
+//        for(Ingredients id : new_cocktail) {
+//            ids.add(id.getIngredientID());
+//        }
+//        return ids;
+//    }
 
-                int position = ingredients1.getSelectedItemPosition();
-                Ingredients ingredientsObject = items.get(position);
-                new_cocktail.add(ingredientsObject);
+    public void onButtonClickToAddIngredients(View button) {
+    Intent intent = new Intent(this, AddIngredientsToCocktailActivity.class);
 
-                Toast.makeText(AddingActivity.this, "Ingredient Added " + new_cocktail.size(), Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-
-    }
-
-    public ArrayList<Integer> getIngredientsListIds() {
-        ArrayList<Integer> ids = new ArrayList<>();
-        for(Ingredients id : new_cocktail) {
-            ids.add(id.getIngredientID());
-        }
-        return ids;
+    startActivity(intent);
     }
 
     public void onClickAddCocktail() {

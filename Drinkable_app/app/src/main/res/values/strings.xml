@@ -13,4 +13,6 @@
     <string name="add_ingredient">Add Ingredient</string>
     <string name="cocktail_info_title">Cocktail Information</string>
     <string name="example_description">Add ingredients to glass and stir over ice.</string>
+    <string name="ingred_added">Add Ingredient to Cocktail</string>
+    <string name="cocktail_add_ingred_title">Add Ingredients to Cocktail</string>
 </resources>

@@ -30,7 +30,11 @@
         <activity
             android:name=".Controllers.CocktailInfoActivity"
             android:label="@string/cocktail_info_title"
-            android:parentActivityName=".Controllers.ChoicesActivity"></activity>
+            android:parentActivityName=".Controllers.ChoicesActivity" />
+        <activity
+            android:name=".Controllers.AddIngredientsToCocktailActivity"
+            android:label="@string/cocktail_add_ingred_title"
+            android:parentActivityName=".Controllers.AddingActivity" ></activity>
     </application>
 
 </manifest>
