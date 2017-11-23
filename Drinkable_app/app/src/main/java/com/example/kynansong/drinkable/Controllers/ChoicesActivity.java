@@ -63,7 +63,7 @@ public class ChoicesActivity extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, ingred);
+                android.R.layout.simple_spinner_dropdown_item, ingred);
 
         ingredients.setAdapter(adapter);
 

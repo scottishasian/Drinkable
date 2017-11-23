@@ -62,7 +62,7 @@ public class CocktailsRepo {
         insertCocktails(db,"Mojito", "50ml Rum, 8 Mint leaves, 15ml Gomme, 25ml Lime"
         , "Muddle the lime, sugar and mint, then stir in the rum over crushed ice. Finish with Soda.");
 
-        insertCocktails(db,"Old Fashioned", "50ml Bourbon, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters"
+        insertCocktails(db,"Old Fashioned", "50ml Bourbon or Rum, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters"
         ,"Muddle the sugar and bitters into a treacle, then stir in the bourbon over ice.");
 
         insertCocktails(db,"Paloma", "50ml Tequila, 12.5ml Lime Juice, 75ml Grapefruit Juice/Soda, 12.5ml Agave, salt rim"
@@ -76,6 +76,33 @@ public class CocktailsRepo {
 
         insertCocktails(db,"Espresso Martini", "25ml Vodka, 25ml Kahlua, 50ml Coffee"
                 ,"Add to shaker, shake well, then double strain into glass.");
+
+        insertCocktails(db,"White Russian", "25ml Vodka, 25ml Kahlua, 50ml Milk"
+                ,"Build and stir over ice.");
+
+        insertCocktails(db,"Martini", "50ml Vodka or Gin, 5-10ml Dry Vermouth",
+                "Stir ingredients over ice, strain into martini glass");
+
+        insertCocktails(db,"Southside", "50ml Gin, 25ml Lime, 12.5ml Sugar, 1 Mint Leaf garnish",
+                "Shake and double strain into a martini or coupe.");
+
+        insertCocktails(db,"Manhattan", "50ml Bourbon, 20ml Vermouth, 2 dashes Angostura Bitters)",
+                "Stir ingredients over ice, strain into martini glass. 20ml Sweet Vermouth (Sweet Manhattan)" +
+                        ", 20ml Dry Vermouth (Dry Manhattan) or 10ml Sweet, 10ml Dry (Perfect Manhattan)");
+
+        insertCocktails(db,"Margerhita", "37.5ml Tequila, 25ml Lime, 12.5ml Cointreau, 10ml Sugar, Salt rim",
+                "Shake and double strain into a martini or coupe.");
+
+        insertCocktails(db,"Tommy's Margerhita", "50ml Tequila, 25ml Lime, 10ml Agave, Salt rim",
+                "Shake and double strain into a martini or coupe.");
+
+        insertCocktails(db,"Caipirinha", "50ml Cachaca, 6 Lime wedges, 10ml Sugar",
+                "Muddle the lime and sugar together then stir in the Cachaca over crushed ice. ");
+
+        insertCocktails(db,"Caprioska", "50ml Vodka, 6 Lime wedges, 10ml Sugar",
+                "Muddle the lime and sugar together then stir in the Vodka over crushed ice. ");
+
+
 
 
 

@@ -17,4 +17,5 @@
     <string name="cocktail_add_ingred_title">Add Ingredients to Cocktail</string>
     <string name="cocktail_delete_title">Delete Cocktail</string>
     <string name="delete_cocktail">Delete Cocktail</string>
+    <string name="select_dropdown">Select from the dropdown menu below.</string>
 </resources>

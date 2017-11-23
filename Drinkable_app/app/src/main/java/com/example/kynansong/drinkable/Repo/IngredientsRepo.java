@@ -53,17 +53,22 @@ public class IngredientsRepo {
         insertIngredients(db,"Vodka");
         insertIngredients(db,"Whisky");
         insertIngredients(db,"Apple");
-        insertIngredients(db,"Agave");
+        insertIngredients(db,"Agave"); //9
         insertIngredients(db,"Bitters");
         insertIngredients(db,"Grapefruit");
         insertIngredients(db,"Mint");
         insertIngredients(db,"Lemon");
         insertIngredients(db,"Lime");
-        insertIngredients(db,"Salt");
+        insertIngredients(db,"Salt"); //15
         insertIngredients(db,"Sugar");
         insertIngredients(db,"Coffee");
         insertIngredients(db,"Kahlua");
         insertIngredients(db,"Cointreau"); //19
+        insertIngredients(db,"Milk");
+        insertIngredients(db,"Sweet Vermouth");
+        insertIngredients(db,"Dry Vermouth"); //22
+        insertIngredients(db,"Cachaca"); //23
+
 
 
 
