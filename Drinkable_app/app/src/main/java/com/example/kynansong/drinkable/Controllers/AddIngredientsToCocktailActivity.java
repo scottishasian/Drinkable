@@ -18,11 +18,11 @@ import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddIngredientsToCocktailActivity extends AppCompatActivity {
+public class AddIngredientsToCocktailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private List<Ingredients> items;
     private List<Cocktails> drinks;
-    private Spinner ingredients1, cocktails1;
+    private Spinner spinner_ingredients1, spinner_cocktails1;
     private DrinkableDatabase db;
     private Button add_to_drinks_table;
 
@@ -33,8 +33,8 @@ public class AddIngredientsToCocktailActivity extends AppCompatActivity {
 
         db = new DrinkableDatabase(this);
 
-        ingredients1 = (Spinner) findViewById(R.id.ingredient1);
-        cocktails1 = (Spinner) findViewById(R.id.cocktail1);
+        spinner_ingredients1 = (Spinner) findViewById(R.id.ingredient1);
+        spinner_cocktails1 = (Spinner) findViewById(R.id.cocktail1);
         add_to_drinks_table = (Button) findViewById(R.id.add_to_drinks_table);
 
         insertIngredients();
@@ -59,7 +59,7 @@ public class AddIngredientsToCocktailActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, ingred);
 
-        ingredients1.setAdapter(adapter);
+        spinner_ingredients1.setAdapter(adapter);
     }
 
     public void insertCocktails() {
@@ -68,40 +68,38 @@ public class AddIngredientsToCocktailActivity extends AppCompatActivity {
 
         this.drinks = cocktailsRepo.getAllCocktails();
 
-        ArrayList<String> bevvys = new ArrayList<>();
+        ArrayList<String> drink_item = new ArrayList<>();
 
         for(Cocktails cocktails : this.drinks) {
-            bevvys.add(cocktails.getCocktailName());
+            drink_item.add(cocktails.getCocktailName());
         }
 
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, bevvys);
+                android.R.layout.simple_spinner_item, drink_item);
 
-        cocktails1.setAdapter(adapter1);
+        spinner_cocktails1.setAdapter(adapter1);
     }
 
     public void onClickAddCocktail() {
+        add_to_drinks_table.setOnClickListener(this);
+    }
 
-        int positionIngred = this.ingredients1.getSelectedItemPosition();
+    @Override
+    public void onClick(View v) {
+        final DrinksRepo drinksRepo = new DrinksRepo(this);
+
+        int positionIngred = this.spinner_ingredients1.getSelectedItemPosition(); //returns 0 position
         final Integer idIngred = this.items.get(positionIngred).getIngredientID();
 
-        int positionDrink = this.cocktails1.getSelectedItemPosition();
+        int positionDrink = this.spinner_cocktails1.getSelectedItemPosition();
         final Integer idDrink = this.drinks.get(positionDrink).getCocktailID();
 
-
-        final DrinksRepo drinksRepo = new DrinksRepo(this);
-        add_to_drinks_table.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isInserted = drinksRepo.insertDrink(db.getWritableDatabase(),idDrink, idIngred);
-                if(isInserted = true) {
-                    Toast.makeText(AddIngredientsToCocktailActivity.this, "Ingredient Added", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(AddIngredientsToCocktailActivity.this, "Ingredient Not Added", Toast.LENGTH_LONG).show();
-                }
-            }
+        boolean isInserted = drinksRepo.insertDrink(db.getWritableDatabase(),idDrink, idIngred);
+        if(isInserted == true) {
+            Toast.makeText(AddIngredientsToCocktailActivity.this, "Ingredient Added", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(AddIngredientsToCocktailActivity.this, "Ingredient Not Added", Toast.LENGTH_LONG).show();
         }
-        );
     }
 }
