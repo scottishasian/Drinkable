@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 import com.example.kynansong.drinkable.Models.Ingredients;
+import com.example.kynansong.drinkable.Repo.BrandRepo;
+import com.example.kynansong.drinkable.Repo.BrandSeeds;
 import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import com.example.kynansong.drinkable.Repo.IngredientsRepo;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import static com.example.kynansong.drinkable.Repo.BrandRepo.TABLE_BRAND;
 import static com.example.kynansong.drinkable.Repo.CocktailsRepo.TABLE_COCKTAILS;
 
 import static com.example.kynansong.drinkable.Repo.DrinksRepo.TABLE_DRINKS;
@@ -28,10 +31,12 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 5048;
+    private static final int VERSION = 5052;
     CocktailsRepo cocktails;
     IngredientsRepo ingredients;
     DrinksRepo drinks;
+    BrandRepo brand;
+    BrandSeeds brandSeeds;
     Context context;
 
     public DrinkableDatabase(Context context) {
@@ -40,6 +45,8 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         cocktails = new CocktailsRepo(context);
         ingredients = new IngredientsRepo(context);
         drinks = new DrinksRepo(context);
+        brand = new BrandRepo(context);
+        this.brandSeeds = new BrandSeeds(context);
 
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -53,10 +60,12 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL(CocktailsRepo.createTable());
         db.execSQL(IngredientsRepo.createTable());
         db.execSQL(DrinksRepo.createTable());
+        db.execSQL(BrandRepo.createTable());
 
         cocktails.CocktailSeeds(db);
         ingredients.IngredientSeeds(db);
         drinks.drinksSeeds(db);
+        brandSeeds.brandSeeds(db);
 
 
 
@@ -69,6 +78,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COCKTAILS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INGREDIENTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DRINKS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BRAND);
 
         onCreate(db);
 
