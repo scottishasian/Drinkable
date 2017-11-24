@@ -6,5 +6,5 @@ package com.example.kynansong.drinkable.Models;
 
 public class InfoPageAdaptor {
 
-    //to help make code for description page dry
+    //to help make code for description activity, in cocktails repo dry
 }

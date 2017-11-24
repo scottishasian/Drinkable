@@ -35,8 +35,6 @@ public class DrinksRepo{
 
     public static String createTable() {
 
-
-
         return "CREATE TABLE " + TABLE_DRINKS + " (" + DRINK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "  //Seems to be working.
                 + COCKTAIL_ID + " INTEGER,"
                 + INGREDIENT_ID + " INTEGER, "

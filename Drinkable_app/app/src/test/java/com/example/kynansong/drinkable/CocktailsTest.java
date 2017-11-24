@@ -17,7 +17,8 @@ public class CocktailsTest {
 
     @Before
     public void before() {
-        cocktails = new Cocktails();
+        cocktails = new Cocktails(1,"Daiquiri", "50ml Rum, 25ml lime, 10ml sugar",
+                "Shake and strain");
     }
 
     @Test
@@ -32,7 +33,16 @@ public class CocktailsTest {
 
     @Test
     public void canGetMeasurementsTest() {
-        assertEquals("50ml Rum, 25ml lime, 10ml sugar", cocktails.getCocktailMeasurements());
+        assertEquals("50ml Rum, 25ml lime, 10ml sugar", cocktails.getCocktailMeasurements()); }
 
+    @Test
+    public void canGetDescriptionTest() {
+        assertEquals("Shake and strain", cocktails.getCocktailDescription());
+    }
+
+    @Test
+    public void canSetNameTest() {
+        cocktails.setCocktailName("Sidecar");
+        assertEquals("Sidecar", cocktails.getCocktailName());
     }
 }
