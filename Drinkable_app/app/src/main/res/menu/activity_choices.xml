@@ -4,5 +4,7 @@
         android:title="@string/add_cocktail"/>
     <item android:id="@+id/action_delete_cocktail"
         android:title="@string/delete_cocktail"/>
+    <item android:id="@+id/action_about"
+        android:title="@string/about"/>
 
 </menu>

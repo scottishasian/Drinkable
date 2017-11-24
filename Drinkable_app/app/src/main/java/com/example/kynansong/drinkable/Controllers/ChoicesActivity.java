@@ -95,11 +95,14 @@ public class ChoicesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == R.id.action_add_cocktail) {
+        if (item.getItemId() == R.id.action_add_cocktail) {
             Intent intent = new Intent(this, AddingActivity.class);
             startActivity(intent);
-        } else if(item.getItemId() == R.id.action_delete_cocktail) {
+        } else if (item.getItemId() == R.id.action_delete_cocktail) {
             Intent intent = new Intent(this, DeleteActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.action_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
         }
         return true;
