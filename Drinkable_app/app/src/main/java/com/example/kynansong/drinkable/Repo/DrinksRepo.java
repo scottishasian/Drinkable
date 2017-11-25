@@ -50,64 +50,7 @@ public class DrinksRepo{
         long result = db.insert(TABLE_DRINKS, null, contentValues);
         return result != -1;
     }
-
-    public void drinksSeeds(SQLiteDatabase db) {
-        insertDrink(db,1,4);
-        insertDrink(db,1,12);
-        insertDrink(db,1,14);
-        insertDrink(db,1,16);
-        insertDrink(db,2,1);
-        insertDrink(db,2,10);
-        insertDrink(db,2,16);
-        insertDrink(db,2,4);
-        insertDrink(db,3, 5);
-        insertDrink(db,3, 9);
-        insertDrink(db,3, 11);
-        insertDrink(db,3, 14);
-        insertDrink(db,3, 15);
-        insertDrink(db,4, 3);
-        insertDrink(db,4, 7);
-        insertDrink(db,5, 4);
-        insertDrink(db,5, 14);
-        insertDrink(db,5, 19);
-        insertDrink(db,6, 6);
-        insertDrink(db,6, 18);
-        insertDrink(db,6, 17);
-        insertDrink(db,7, 20);
-        insertDrink(db,7, 6);
-        insertDrink(db,7, 18);
-        insertDrink(db,8, 2);
-        insertDrink(db,8, 6);
-        insertDrink(db,8, 22);
-        insertDrink(db,9, 2);
-        insertDrink(db,9, 14);
-        insertDrink(db,9, 16);
-        insertDrink(db,9, 12);
-        insertDrink(db,10, 1);
-        insertDrink(db,10, 22);
-        insertDrink(db,10, 21);
-        insertDrink(db,10, 10);
-        insertDrink(db,11, 5);
-        insertDrink(db,11, 15);
-        insertDrink(db,11, 14);
-        insertDrink(db,11, 16);
-        insertDrink(db,11, 19);
-        insertDrink(db,12, 14);
-        insertDrink(db,12, 15);
-        insertDrink(db,12, 5);
-        insertDrink(db,12, 9);
-        insertDrink(db,13, 14);
-        insertDrink(db,13, 16);
-        insertDrink(db,13, 23);
-        insertDrink(db,14, 14);
-        insertDrink(db,14, 16);
-        insertDrink(db,14, 6);
-
-
-
-
-
-    }
+    
 
 
 }
