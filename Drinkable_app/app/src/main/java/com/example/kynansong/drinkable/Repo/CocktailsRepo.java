@@ -25,6 +25,8 @@ import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDI
 
 public class CocktailsRepo {
 
+    //Need to refactor methods and seeds.
+
     //Cocktail table
     private static final String TAG = Cocktails.class.getSimpleName();
     public static final String TABLE_COCKTAILS = "cocktails_table";
@@ -204,28 +206,6 @@ public class CocktailsRepo {
         return name;
     }
 
-    public Integer getCocktailID(int cocktailID) {    //Not DRY, could put into array with above and then use adaptor.
-        String stringID = Integer.toString(cocktailID);
-        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
-                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;
-        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
-        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
-
-        String related_ID = "";
-
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if(cursor != null) {
-            cursor.moveToFirst();
-            related_ID = cursor.getString(cursor.getColumnIndex("KEY_COCKTAIL_ID"));
-        }
-        cursor.close();
-        db.close();
-
-        Integer result = new Integer(related_ID);
-
-        return result;
-    }
 
 //    public ArrayList<Cocktails> getCocktailInfoDescriptionsPage(int cocktailID) {     //To make dryer code.
 //        String stringID = Integer.toString(cocktailID);

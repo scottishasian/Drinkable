@@ -8,24 +8,37 @@
 
     <TextView
         android:id="@+id/name_brand"
-        android:layout_width="99dp"
-        android:layout_height="35dp"
+        android:layout_width="208dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="cursive"
         android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/type_brand"
-        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/type_brand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_width="127dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="36dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>

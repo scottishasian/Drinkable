@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kynansong.drinkable.Models.Cocktails;
 import com.example.kynansong.drinkable.R;
@@ -58,6 +59,12 @@ public class CocktailInfoActivity extends AppCompatActivity {
 
 
         startActivity(intent);
+    }
+
+    public void onWhereToFindButtonClick(View button) {
+
+        Toast.makeText(CocktailInfoActivity.this, "Under Construction", Toast.LENGTH_LONG).show();
+
     }
 
 
