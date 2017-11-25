@@ -23,4 +23,7 @@
     <string name="about_information">This application was created as part of project involving Java, SQLite and Android.</string>
     <string name="app_info">This app allows you to select an ingredient to filter a list of cocktails based on that ingredient. Then by selecting items from the list, you can learn how to make the cocktail.</string>
     <string name="created_by">Created by: Kynan Song</string>
+    <string name="recommended_brand">Recommended Spirits</string>
+    <string name="where_to_find">Where can I find this?</string>
+    <string name="cocktail_recommended_title">Recommended Brands</string>
 </resources>

@@ -186,7 +186,7 @@ public class CocktailsRepo {
     public String getCocktailName(int cocktailID) {    //Not DRY, could put into array with above and then use adaptor.
         String stringID = Integer.toString(cocktailID);
         String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
-                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;;
+                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;
         DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
         SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
 
@@ -202,6 +202,29 @@ public class CocktailsRepo {
         db.close();
 
         return name;
+    }
+
+    public Integer getCocktailID(int cocktailID) {    //Not DRY, could put into array with above and then use adaptor.
+        String stringID = Integer.toString(cocktailID);
+        String selectQuery = "SELECT * FROM " + TABLE_COCKTAILS
+                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+
+        String related_ID = "";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor != null) {
+            cursor.moveToFirst();
+            related_ID = cursor.getString(cursor.getColumnIndex("KEY_COCKTAIL_ID"));
+        }
+        cursor.close();
+        db.close();
+
+        Integer result = new Integer(related_ID);
+
+        return result;
     }
 
 //    public ArrayList<Cocktails> getCocktailInfoDescriptionsPage(int cocktailID) {     //To make dryer code.

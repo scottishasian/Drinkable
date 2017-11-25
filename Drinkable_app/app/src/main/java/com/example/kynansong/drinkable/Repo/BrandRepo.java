@@ -13,6 +13,10 @@ import java.util.ArrayList;
 
 import static com.example.kynansong.drinkable.Repo.CocktailsRepo.KEY_COCKTAIL_ID;
 import static com.example.kynansong.drinkable.Repo.CocktailsRepo.TABLE_COCKTAILS;
+import static com.example.kynansong.drinkable.Repo.RecommendedBrandRepo.BRAND_R_ID;
+import static com.example.kynansong.drinkable.Repo.RecommendedBrandRepo.COCKTAIL_R_ID;
+import static com.example.kynansong.drinkable.Repo.RecommendedBrandRepo.TABLE_RECOMMENDED;
+
 
 /**
  * Created by kynansong on 24/11/2017.
@@ -23,13 +27,11 @@ public class BrandRepo {
     //plan to create a table of drinks brands than can be associated with cocktails.
     public static final String TAG = Brand.class.getSimpleName();
     public static final String TABLE_BRAND = "brand_table";
-    public static final String BRAND_ID = "brand_ID";
+    public static final String KEY_BRAND_ID = "brand_ID";
     public static final String BRAND_NAME = "Brand_Name";
     public static final String BRAND_LINK = "website";
     public static final String TYPE = "Type_spirit";
-
-    //Take out goeswith and create a join table.
-
+    
 
     private Brand brand;
     private Context context;
@@ -42,7 +44,7 @@ public class BrandRepo {
 
     public static String createTable() {
 
-        return "CREATE TABLE " + TABLE_BRAND + " (" + BRAND_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        return "CREATE TABLE " + TABLE_BRAND + " (" + KEY_BRAND_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BRAND_NAME + " TEXT,"
                 + BRAND_LINK + " TEXT,"
                 + TYPE + " TEXT " + ")";
@@ -62,14 +64,18 @@ public class BrandRepo {
 
     //Returns a list of brands based on cocktail id.
 
-    public ArrayList<Brand> getAllBrands(int brand_id) {
-        String stringID = Integer.toString(brand_id);
+    public ArrayList<Brand> getAllBrands(int cocktail_id) {
+        String stringID = Integer.toString(cocktail_id);
         DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
         SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
         ArrayList<Brand> brands = new ArrayList();
 
         String brandList = " SELECT * FROM " + TABLE_BRAND
-                + " WHERE " + BRAND_ID + " = " + stringID;
+                + " INNER JOIN " + TABLE_RECOMMENDED + " ON " + BRAND_R_ID +
+                " = " + KEY_BRAND_ID
+                + " INNER JOIN " + TABLE_COCKTAILS + " ON " + KEY_COCKTAIL_ID +
+                " = " + COCKTAIL_R_ID
+                + " WHERE " + KEY_COCKTAIL_ID + " = " + stringID;
 
         Cursor cursor = db.rawQuery(brandList, null);
 
@@ -88,6 +94,7 @@ public class BrandRepo {
 
         return brands;
     }
+
 
 
 

@@ -56,5 +56,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/recommended_brand_button"
+        android:layout_width="140dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onRecommendedButtonClick"
+        android:text="@string/recommended_brand"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cocktail_measurements"
+        app:layout_constraintVertical_bias="0.509"
+        tools:text="@string/recommended_brand" />
+
+    <Button
+        android:id="@+id/where_to_find_button"
+        android:layout_width="142dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/where_to_find"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toEndOf="@+id/recommended_brand_button"
+        app:layout_constraintTop_toBottomOf="@+id/cocktail_measurements"
+        app:layout_constraintVertical_bias="0.49" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -55,10 +55,12 @@ public class Cocktail_ListActivity extends AppCompatActivity {
         String info = cocktailsRepo.getCocktailInfo(selectedCocktail.getCocktailID());
         String measurements = cocktailsRepo.getCocktailMeasurements(selectedCocktail.getCocktailID());
         String name = cocktailsRepo.getCocktailName(selectedCocktail.getCocktailID());
+        Integer cocktailId = selectedCocktail.getCocktailID();
 
         goToInfo.putExtra("info", info);
         goToInfo.putExtra("measurements", measurements);
         goToInfo.putExtra("name", name);
+        goToInfo.putExtra("cocktailId", cocktailId);
 
         startActivity(goToInfo);
 

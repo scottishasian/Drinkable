@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.kynansong.drinkable.Models.Drinks;
 import com.example.kynansong.drinkable.Models.RecommendedBrand;
 
-import static com.example.kynansong.drinkable.Repo.BrandRepo.BRAND_ID;
+import static com.example.kynansong.drinkable.Repo.BrandRepo.KEY_BRAND_ID;
 import static com.example.kynansong.drinkable.Repo.BrandRepo.TABLE_BRAND;
 import static com.example.kynansong.drinkable.Repo.CocktailsRepo.KEY_COCKTAIL_ID;
 import static com.example.kynansong.drinkable.Repo.CocktailsRepo.TABLE_COCKTAILS;
@@ -41,7 +41,7 @@ public class RecommendedBrandRepo {
                 + COCKTAIL_R_ID + " INTEGER,"
                 + BRAND_R_ID + " INTEGER, "
                 + "FOREIGN KEY(" + COCKTAIL_R_ID + ") REFERENCES " + TABLE_COCKTAILS + "(" + KEY_COCKTAIL_ID +"),"
-                + "FOREIGN KEY(" + BRAND_R_ID + ") REFERENCES " + TABLE_BRAND + "(" + BRAND_ID +"))";
+                + "FOREIGN KEY(" + BRAND_R_ID + ") REFERENCES " + TABLE_BRAND + "(" + KEY_BRAND_ID +"))";
     }   // Must define items in table first then foreign keys.
 
 

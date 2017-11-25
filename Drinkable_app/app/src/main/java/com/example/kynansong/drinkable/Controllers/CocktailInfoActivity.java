@@ -3,6 +3,8 @@ package com.example.kynansong.drinkable.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.kynansong.drinkable.Models.Cocktails;
@@ -12,6 +14,8 @@ import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 import java.awt.font.TextAttribute;
 
 public class CocktailInfoActivity extends AppCompatActivity {
+
+    private Button recommended_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,23 @@ public class CocktailInfoActivity extends AppCompatActivity {
         cocktailMeasurementTextView.setText(cocktailMeasurements);
         cocktailNameTextView.setText(cocktailName);
 
+        this.recommended_button = (Button) findViewById(R.id.recommended_brand_button);
+
+    }
+
+    public void onRecommendedButtonClick(View button) {
+        Intent intent = new Intent(this, RecommendedActivity.class);
+
+        Intent cocktailid = getIntent();
+
+        Bundle extrasBrand = cocktailid.getExtras();
+
+        Integer brandInfo = extrasBrand.getInt("cocktailId");
+
+        intent.putExtra("brandInfo", brandInfo);
+
+
+        startActivity(intent);
     }
 
 
