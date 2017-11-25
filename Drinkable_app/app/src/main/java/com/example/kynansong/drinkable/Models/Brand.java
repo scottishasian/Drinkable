@@ -9,13 +9,13 @@ public class Brand {
     private Integer brand_id;
     private String brand_name;
     private String brand_website;
-    private Integer cocktail_id;
+    private String type;
 
-    public Brand(Integer brand_id, String brand_name, String brand_website, Integer cocktail_id) {
+    public Brand(Integer brand_id, String brand_name, String brand_website, String brand_type) {
         this.brand_id = brand_id;
         this.brand_name = brand_name;
         this.brand_website = brand_website;
-        this.cocktail_id = cocktail_id;
+        this.type = brand_type;
     }
 
     //Need to create getters and setters.
@@ -40,11 +40,11 @@ public class Brand {
         this.brand_website = website;
     }
 
-    public Integer getCocktail_ID() {
-        return this.cocktail_id;
+    public String getBrand_type() {
+        return this.type;
     }
 
-    public void setCocktail_id(Integer id) {
-        this.cocktail_id = id;
+    public void setSpiritType(String type) {
+        this.type = type;
     }
 }

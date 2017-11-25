@@ -18,9 +18,9 @@ public class BrandSeeds {
     }
 
     public void brandSeeds(SQLiteDatabase db){
-        brandRepo.insertBrand(db, "Arbikie", "https://www.arbikie.com", 6);
-        brandRepo.insertBrand(db, "Kettle One", "https://www.ketelone.com/en-gb/", 6);
-        brandRepo.insertBrand(db, "Tapitio", "http://specialitybrands.com/our-range/tapatio/", 3);
+        brandRepo.insertBrand(db, "Arbikie", "https://www.arbikie.com", "Gin and Vodka");
+        brandRepo.insertBrand(db, "Kettle One", "https://www.ketelone.com/en-gb/", "Vodka");
+        brandRepo.insertBrand(db, "Tapitio", "http://specialitybrands.com/our-range/tapatio/", "Tequila");
 
     }
 }

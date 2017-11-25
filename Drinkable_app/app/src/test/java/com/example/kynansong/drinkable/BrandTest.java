@@ -18,7 +18,7 @@ public class BrandTest {
 
     @Before
     public void before(){
-        brand = new Brand(1, "Arbikie", "https://www.arbikie.com", 6);
+        brand = new Brand(1, "Arbikie", "https://www.arbikie.com", "Gin and Vodka");
 
     }
 
@@ -51,13 +51,13 @@ public class BrandTest {
     }
 
     @Test
-    public void canGetAssociatedCocktailId() {
-        assertEquals((Integer)6, brand.getCocktail_ID());
+    public void canGetSpiritType() {
+        assertEquals("Gin and Vodka", brand.getBrand_type());
     }
 
     @Test
-    public void canSetCocktailId() {
-        this.brand.setCocktail_id(4);
-        assertEquals((Integer)4, brand.getCocktail_ID());
+    public void canSetSpiritType() {
+        this.brand.setSpiritType("Rum");
+        assertEquals("Rum", brand.getBrand_type());
     }
 }
