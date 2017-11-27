@@ -95,6 +95,27 @@ public class BrandRepo {
         return brands;
     }
 
+    public String getBrandWebsite(int brand_id) {
+        String stringID = Integer.toString(brand_id);
+        String selectQuery = "SELECT * FROM " + TABLE_BRAND
+                + " WHERE " + KEY_BRAND_ID + " = " + stringID;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+
+        String website = "";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor != null) {
+            cursor.moveToFirst();
+            website = cursor.getString(cursor.getColumnIndex("BRAND_LINK"));
+        }
+        cursor.close();
+        db.close();
+
+        return website;
+    }
+
 
 
 

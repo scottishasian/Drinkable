@@ -44,7 +44,7 @@ public class IngredientsRepo {
         return result != -1;
     }
 
-    public void IngredientSeeds(SQLiteDatabase db) {
+    public void IngredientSeeds(SQLiteDatabase db) {   //Need to create a repo class.
         insertIngredients(db,"Bourbon");
         insertIngredients(db,"Gin");
         insertIngredients(db,"Ginger Wine");

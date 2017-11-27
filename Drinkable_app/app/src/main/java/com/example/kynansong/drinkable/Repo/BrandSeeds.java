@@ -27,6 +27,8 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Rock Rose", "https://www.dunnetbaydistillers.co.uk/rock-rose-gin/", "Gin");
         brandRepo.insertBrand(db, "Tanqueray", "http://www.tanqueray.com/en-gb/", "Gin");
         brandRepo.insertBrand(db, "Makers Mark", "https://www.makersmark.com/", "Bourbon");
+        brandRepo.insertBrand(db, "Balvenie", "https://www.thebalvenie.com/", "Whisky");
+        brandRepo.insertBrand(db, "Hendricks", "https://uk.hendricksgin.com/", "Gin");
 
     }
 }

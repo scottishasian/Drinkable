@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kynansong.drinkable">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -47,6 +49,7 @@
             android:name=".Controllers.RecommendedActivity"
             android:label="@string/cocktail_recommended_title"
             android:parentActivityName=".Controllers.ChoicesActivity" />
+        <activity android:name=".Controllers.WebViewActivity"></activity>
     </application>
 
 </manifest>

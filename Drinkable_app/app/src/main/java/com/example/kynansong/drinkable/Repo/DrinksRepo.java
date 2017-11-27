@@ -50,7 +50,7 @@ public class DrinksRepo{
         long result = db.insert(TABLE_DRINKS, null, contentValues);
         return result != -1;
     }
-    
+
 
 
 }
