@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
+
 
 /**
  * Created by kynansong on 24/11/2017.
