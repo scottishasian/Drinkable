@@ -52,6 +52,10 @@ public class RecommendedActivity extends AppCompatActivity {
 
         Intent goToWebsite = new Intent(RecommendedActivity.this, WebViewActivity.class);
 
+        String websiteLink = brandRepo.getBrandWebsite(selectedBrand.getBrand_id());
+
+        goToWebsite.putExtra("weblink", websiteLink);
+
         startActivity(goToWebsite);
     }
 }

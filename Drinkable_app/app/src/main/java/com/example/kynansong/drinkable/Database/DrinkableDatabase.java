@@ -35,7 +35,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 5059;
+    private static final int VERSION = 5060;
     CocktailsRepo cocktails;
     IngredientsRepo ingredients;
     DrinksRepo drinks;

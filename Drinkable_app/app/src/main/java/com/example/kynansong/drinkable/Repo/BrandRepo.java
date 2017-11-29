@@ -106,9 +106,10 @@ public class BrandRepo {
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        if(cursor != null) {
-            cursor.moveToFirst();
-            website = cursor.getString(cursor.getColumnIndex("BRAND_LINK"));
+        if(cursor != null) {            //need to wrap it or it returns nothing
+            if(cursor.moveToFirst()) {
+                website = cursor.getString(cursor.getColumnIndex(BRAND_LINK));
+            }
         }
         cursor.close();
         db.close();

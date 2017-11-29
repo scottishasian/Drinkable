@@ -1,6 +1,7 @@
 package com.example.kynansong.drinkable.Controllers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,12 @@ public class WebViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
+        Intent intent = getIntent();
+
+        Bundle extras = intent.getExtras();
+
+        String websiteLink = extras.getString("weblink");
+
         brandWebViewurl = (WebView) findViewById(R.id.brand_website);
         brandWebViewurl.setWebViewClient(new MyBrowser());
 
@@ -35,14 +42,7 @@ public class WebViewActivity extends Activity {
 
         brandWebViewurl.getSettings().setBuiltInZoomControls(true);
 
-//        final AppCompatActivity activity = this;
-//        brandWebViewurl.setWebViewClient(new WebViewClient() {
-//            public boolean shouldOverrideUrlLoading(WebView view, String url){
-//                brandWebViewurl.loadUrl("www.google.com");
-//                return true;
-//            }
-//        });
-        brandWebViewurl.loadUrl("http://www.facebook.com"); //Need to call on brand website.
+        brandWebViewurl.loadUrl(websiteLink); //Need to call on brand website.
             // if not working, try clean and rebuild project.
     }
 }
