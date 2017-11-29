@@ -102,7 +102,7 @@ public class CocktailsRepo {
                 "Muddle the lime and sugar together then stir in the Cachaca over crushed ice. ");
 
         insertCocktails(db,"Caprioska", "50ml Vodka, 6 Lime wedges, 10ml Sugar",
-                "Muddle the lime and sugar together then stir in the Vodka over crushed ice. ");
+                "Muddle the lime and sugar together then stir in the Vodka over crushed ice. ");  //14
 
 
     }
