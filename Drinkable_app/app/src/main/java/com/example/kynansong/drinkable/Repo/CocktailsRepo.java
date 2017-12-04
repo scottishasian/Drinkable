@@ -104,6 +104,12 @@ public class CocktailsRepo {
         insertCocktails(db,"Caprioska", "50ml Vodka, 6 Lime wedges, 10ml Sugar",
                 "Muddle the lime and sugar together then stir in the Vodka over crushed ice. ");  //14
 
+        insertCocktails(db, "Mescal Negroni", "25ml Mescal, 25ml Sweet Vermouth, 25ml Campari",
+                "Add to mixing glass with ice, stir to dilute and then strain into glass.");
+
+        insertCocktails(db, "Negroni", "25ml Gin, 25ml Sweet Vermouth, 25ml Campari",
+                "Add to mixing glass with ice, stir to dilute and then strain into glass.");
+
 
     }
 

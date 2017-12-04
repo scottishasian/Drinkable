@@ -63,7 +63,11 @@ public class CocktailInfoActivity extends AppCompatActivity {
 
     public void onWhereToFindButtonClick(View button) {
 
+        Intent toMap = new Intent(this, BarLocationsActivity.class);
+
         Toast.makeText(CocktailInfoActivity.this, "Under Construction", Toast.LENGTH_LONG).show();
+
+        startActivity(toMap);
 
     }
 

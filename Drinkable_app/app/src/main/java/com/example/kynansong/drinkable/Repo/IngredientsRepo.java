@@ -68,6 +68,8 @@ public class IngredientsRepo {
         insertIngredients(db,"Sweet Vermouth");
         insertIngredients(db,"Dry Vermouth"); //22
         insertIngredients(db,"Cachaca"); //23
+        insertIngredients(db, "Mescal");
+        insertIngredients(db, "Campari");
 
 
 
