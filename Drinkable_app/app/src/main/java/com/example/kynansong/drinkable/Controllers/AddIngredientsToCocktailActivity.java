@@ -14,6 +14,7 @@ import com.example.kynansong.drinkable.Models.Ingredients;
 import com.example.kynansong.drinkable.R;
 import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 import com.example.kynansong.drinkable.Repo.DrinksRepo;
+import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,9 @@ public class AddIngredientsToCocktailActivity extends AppCompatActivity implemen
 
     public void insertIngredients() {
 
-        this.items = db.getAllIngredients();
+        IngredientsRepo ingredientsRepo = new IngredientsRepo(this);
+
+        this.items = ingredientsRepo.getAllIngredients();
 
         ArrayList<String> ingred = new ArrayList<>();
 

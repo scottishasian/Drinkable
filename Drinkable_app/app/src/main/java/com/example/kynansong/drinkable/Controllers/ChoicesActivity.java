@@ -53,8 +53,9 @@ public class ChoicesActivity extends AppCompatActivity {
 
     public void insertData() {
 
-        DrinkableDatabase db = new DrinkableDatabase(this);
-        this.items = db.getAllIngredients();
+        IngredientsRepo ingredientsRepo = new IngredientsRepo(this);
+
+        this.items = ingredientsRepo.getAllIngredients();
 
         ArrayList<String> ingred = new ArrayList<>();
 

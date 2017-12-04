@@ -29,6 +29,7 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Makers Mark", "https://www.makersmark.com/", "Bourbon");
         brandRepo.insertBrand(db, "Balvenie", "https://www.thebalvenie.com/", "Whisky");
         brandRepo.insertBrand(db, "Hendricks", "https://uk.hendricksgin.com/", "Gin");
+        brandRepo.insertBrand(db, "Vida", "http://delmaguey.com/vida/", "Mezcal");
 
     }
 }

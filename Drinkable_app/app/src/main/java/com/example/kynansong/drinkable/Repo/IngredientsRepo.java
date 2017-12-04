@@ -68,12 +68,36 @@ public class IngredientsRepo {
         insertIngredients(db,"Sweet Vermouth");
         insertIngredients(db,"Dry Vermouth"); //22
         insertIngredients(db,"Cachaca"); //23
-        insertIngredients(db, "Mescal");
+        insertIngredients(db, "Mezcal");
         insertIngredients(db, "Campari");
 
 
 
 
+    }
+
+    public List<Ingredients> getAllIngredients() {
+        List<Ingredients> ingredients = new ArrayList();
+        String selectQuery = "SELECT * FROM " + TABLE_INGREDIENTS;
+        DrinkableDatabase drinkableDatabase = new DrinkableDatabase(this.context);
+        SQLiteDatabase db = drinkableDatabase.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+
+        if(cursor.moveToFirst()) {      //loops through rows and adds to the arraylist.
+            do {
+                String name = cursor.getString(1);
+                Integer id = cursor.getInt(0);       //Had to change to int here.
+                Ingredients ingredient = new Ingredients(id, name);
+
+
+                ingredients.add(ingredient);
+
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return ingredients;
     }
 
 
