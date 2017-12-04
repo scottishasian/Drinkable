@@ -10,7 +10,6 @@ import com.example.kynansong.drinkable.Database.DrinkableDatabase;
  */
 
 public class DrinksSeeds {
-    //plan to move drinks seeds to here to clean up drinks repo.
     DrinksRepo drinksRepo;
     Context context;
 

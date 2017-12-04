@@ -44,38 +44,6 @@ public class IngredientsRepo {
         return result != -1;
     }
 
-    public void IngredientSeeds(SQLiteDatabase db) {   //Need to create a repo class.
-        insertIngredients(db,"Bourbon");
-        insertIngredients(db,"Gin");
-        insertIngredients(db,"Ginger Wine");
-        insertIngredients(db,"Rum");
-        insertIngredients(db,"Tequila");
-        insertIngredients(db,"Vodka");
-        insertIngredients(db,"Whisky");
-        insertIngredients(db,"Apple");
-        insertIngredients(db,"Agave"); //9
-        insertIngredients(db,"Bitters");
-        insertIngredients(db,"Grapefruit");
-        insertIngredients(db,"Mint");
-        insertIngredients(db,"Lemon");
-        insertIngredients(db,"Lime");
-        insertIngredients(db,"Salt"); //15
-        insertIngredients(db,"Sugar");
-        insertIngredients(db,"Coffee");
-        insertIngredients(db,"Kahlua");
-        insertIngredients(db,"Cointreau"); //19
-        insertIngredients(db,"Milk");
-        insertIngredients(db,"Sweet Vermouth");
-        insertIngredients(db,"Dry Vermouth"); //22
-        insertIngredients(db,"Cachaca"); //23
-        insertIngredients(db, "Mezcal");
-        insertIngredients(db, "Campari");
-
-
-
-
-    }
-
     public List<Ingredients> getAllIngredients() {
         List<Ingredients> ingredients = new ArrayList();
         String selectQuery = "SELECT * FROM " + TABLE_INGREDIENTS;
@@ -99,10 +67,6 @@ public class IngredientsRepo {
 
         return ingredients;
     }
-
-
-
-
 
 
 }
