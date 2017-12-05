@@ -14,6 +14,7 @@ import com.example.kynansong.drinkable.Repo.BrandSeeds;
 import com.example.kynansong.drinkable.Repo.CocktailToBarRepo;
 import com.example.kynansong.drinkable.Repo.CocktailToBarSeeds;
 import com.example.kynansong.drinkable.Repo.CocktailsRepo;
+import com.example.kynansong.drinkable.Repo.CocktailsSeeds;
 import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import com.example.kynansong.drinkable.Repo.DrinksSeeds;
 import com.example.kynansong.drinkable.Repo.IngredientsRepo;
@@ -42,8 +43,9 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "drinkable.db";
     private static final String TAG = DrinkableDatabase.class.getSimpleName().toString();
-    private static final int VERSION = 5068;
+    private static final int VERSION = 5069;
     CocktailsRepo cocktails;
+    CocktailsSeeds cocktailsSeeds;
     IngredientsRepo ingredients;
     IngredientsSeeds ingredientsSeeds;
     BarLocationRepo barLocation;
@@ -74,6 +76,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         this.barSeeds = new BarLocationSeeds(context);
         this.cocktailToBarSeeds = new CocktailToBarSeeds(context);
         this.ingredientsSeeds = new IngredientsSeeds(context);
+        this.cocktailsSeeds = new CocktailsSeeds(context);
 
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -91,7 +94,7 @@ public class DrinkableDatabase extends SQLiteOpenHelper {
         db.execSQL(BarLocationRepo.createTable());
         db.execSQL(CocktailToBarRepo.createTable());
 
-        cocktails.CocktailSeeds(db);
+        cocktailsSeeds.CocktailSeeds(db);
         drinksSeeds.drinksSeeds(db);
         brandSeeds.brandSeeds(db);
         recommendedBrandSeeds.recommendedBrandsSeeds(db);
