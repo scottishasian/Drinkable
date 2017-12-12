@@ -25,7 +25,7 @@ import static com.example.kynansong.drinkable.Repo.IngredientsRepo.TABLE_INGREDI
 
 public class CocktailsRepo {
 
-    //Need to refactor methods and seeds.
+    //Need to refactor methods.
 
     //Cocktail table
     private static final String TAG = Cocktails.class.getSimpleName();
@@ -85,7 +85,7 @@ public class CocktailsRepo {
                 String description = cursor.getString(3);
                 String measurement = cursor.getString(2);
                 String name = cursor.getString(1);
-                Integer id = cursor.getInt(0);       //Had to change to int here.
+                Integer id = cursor.getInt(0);
                 Cocktails cocktail = new Cocktails(id, name, measurement, description);
                 cocktails.add(cocktail);
             }while(cursor.moveToNext());
@@ -106,7 +106,7 @@ public class CocktailsRepo {
 
         String description = "";
 
-        Cursor cursor = db.rawQuery(selectQuery, null); // Class to represent mouse cursor.
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
         if(cursor != null) {      //loops through rows and adds to the arraylist.
                 cursor.moveToFirst();

@@ -1,5 +1,7 @@
 package com.example.kynansong.drinkable.Models;
 
+import java.util.ArrayList;
+
 /**
  * Created by kynansong on 29/11/2017.
  */
@@ -8,14 +10,15 @@ public class BarLocation {
 
     private Integer bar_id;
     private String bar_name;
-    private double longitude;
     private double latitude;
+    private double longitude;
 
-    public BarLocation(Integer bar_id, String bar_name, double longitude, double latitude) {
+
+    public BarLocation(Integer bar_id, String bar_name, double latitude, double longitude ) {
         this.bar_id = bar_id;
         this.bar_name = bar_name;
-        this.longitude = longitude;
         this.latitude = latitude;
+        this.longitude = longitude;
 
     }
 
@@ -45,5 +48,21 @@ public class BarLocation {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+    }
+
+    public double barLat(ArrayList<BarLocation> location) {
+        double result = 0;
+        for(BarLocation i : location) {
+            result = i.getLatitude();
+        }
+        return result;
+    }
+
+    public double barLong(ArrayList<BarLocation> location) {
+        double result = 0;
+        for(BarLocation j : location) {
+            result = j.getLongitude();
+        }
+        return result;
     }
 }

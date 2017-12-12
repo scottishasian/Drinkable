@@ -12,4 +12,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
     }
+
+    //Add a donate function.
+    //Add a contact for feedback and support function.
 }

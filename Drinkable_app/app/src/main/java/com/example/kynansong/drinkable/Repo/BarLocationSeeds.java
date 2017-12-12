@@ -20,5 +20,6 @@ public class BarLocationSeeds {
     public void barSeeds(SQLiteDatabase db) {
         barLocationRepo.insertBarLocation(db, "The Voodoo Rooms", 55.953956, -3.190682);
         barLocationRepo.insertBarLocation(db, "Lebowskis", 55.946117, -3.206457);
+        barLocationRepo.insertBarLocation(db, "The Voyage of Buck", 55.949632, -3.212400);
     }
 }

@@ -67,7 +67,19 @@ public class CocktailInfoActivity extends AppCompatActivity {
 
         Toast.makeText(CocktailInfoActivity.this, "Under Construction", Toast.LENGTH_LONG).show();
 
+        //needs to use an inner join function to draw out the id of bar location based on cocktail ID.
+
+        Intent cocktailid = getIntent();
+
+        Bundle extrasLocation = cocktailid.getExtras();
+
+        Integer locationInfo = extrasLocation.getInt("cocktailId");
+
+        toMap.putExtra("locationInfo", locationInfo);
+
         startActivity(toMap);
+
+
 
     }
 
