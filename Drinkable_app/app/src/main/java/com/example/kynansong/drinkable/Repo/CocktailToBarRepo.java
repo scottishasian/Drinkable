@@ -21,7 +21,7 @@ public class CocktailToBarRepo {
     public static final String TABLE_COCKTAIL_TO_BAR = "cocktail_bar_table";
     public static final String KEY_COCKTAIL_TO_BAR_ID = "key_CocktailToBar_ID";
     public static final String  SELECTED_COCKTAIL_ID = "selected_cocktail_ID";
-    public static final String BAR_ID = "bar_ID";
+    public static final String BAR_ID = "join_bar_ID";
 
     CocktailToBar cocktailToBar;
     Context context;

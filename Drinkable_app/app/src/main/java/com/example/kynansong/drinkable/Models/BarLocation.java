@@ -65,4 +65,12 @@ public class BarLocation {
         }
         return result;
     }
+
+    public String barName(ArrayList<BarLocation> location) {
+        String result = "";
+        for(BarLocation j : location) {
+            result = j.getBarName();
+        }
+        return result;
+    }
 }

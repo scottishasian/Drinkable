@@ -23,6 +23,7 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
     BarLocationRepo barLocationRepo;
     private double barLat = 0;
     private double barLong = 0;
+    private String barName = "";
 
 
     @Override
@@ -38,19 +39,26 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         Bundle extras = intent.getExtras();
 
-        Integer cocktailID = extras.getInt("IngredientID");
+        Integer cocktailID = extras.getInt("locationInfo");
+
+        barLocationRepo = new BarLocationRepo(this);
+//        barLocation = new BarLocation(this);
+
+        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID); //breaks here
+
+        barLocation = location.get(0);
+
+        barLat = barLocation.barLat(location);
+
+        barLong = barLocation.barLong(location);
+
+        barName = barLocation.barName(location);
 //
-//        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID);
-//
-//        //do i need an adaptor??
-//
+//        do i need an adaptor?? YES!
+//         App crashes if no location attached. Need to attach at least one location to each cocktail.
 
 
     }
-
-
-
-
 
 
 
@@ -71,21 +79,29 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Lebowskis and move the camera
-        LatLng lebowskis = new LatLng(55.946117, -3.206457);
-        mMap.addMarker(new MarkerOptions().position(lebowskis).title("Marker Lebowskis"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(lebowskis));
-
-        // Add a marker in The Voyage of Buck and move the camera
-        LatLng voyage = new LatLng(55.949632, -3.212400);
-        mMap.addMarker(new MarkerOptions().position(voyage).title("Marker The Voyage of Buck"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(voyage));
-
-        // Add a marker in Voodoo and move the camera
-        LatLng voodoo = new LatLng(55.953956, -3.190682);
-        mMap.addMarker(new MarkerOptions().position(voodoo).title("Marker The Voodoo Rooms"));
+        // test marker
+        LatLng newTag = new LatLng(barLat, barLong);
+        mMap.addMarker(new MarkerOptions().position(newTag).title(barName));
         float zoomLevel = 14.0f; //This goes up to 21
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(voodoo, zoomLevel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
+
+//        Need to create a marker array.
+
+//        // Add a marker in Lebowskis and move the camera
+//        LatLng lebowskis = new LatLng(55.946117, -3.206457);
+//        mMap.addMarker(new MarkerOptions().position(lebowskis).title("Marker Lebowskis"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(lebowskis));
+//
+//        // Add a marker in The Voyage of Buck and move the camera
+//        LatLng voyage = new LatLng(55.949632, -3.212400);
+//        mMap.addMarker(new MarkerOptions().position(voyage).title("Marker The Voyage of Buck"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(voyage));
+//
+//        // Add a marker in Voodoo and move the camera
+//        LatLng voodoo = new LatLng(55.953956, -3.190682);
+//        mMap.addMarker(new MarkerOptions().position(voodoo).title("Marker The Voodoo Rooms"));
+//        float zoomLevel = 14.0f; //This goes up to 21
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(voodoo, zoomLevel));
     }
 
     //add location manager and cursor to loop through array of locations based on cocktail id.
