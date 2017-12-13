@@ -65,7 +65,7 @@ public class ChoicesActivity extends AppCompatActivity {
 
         for(Ingredients ingredient : this.items) {
             ingred.add(ingredient.getIngredientName());
-            Collections.sort(ingred);
+//            Collections.sort(ingred); Need to fix positions.
         }
 
 
@@ -87,6 +87,7 @@ public class ChoicesActivity extends AppCompatActivity {
         int position = this.ingredients.getSelectedItemPosition();
 
         Integer id = this.items.get(position).getIngredientID();
+        //Position is being entered as ingred ID. Can't use position if array is sorted.
 
 
         intent.putExtra("IngredientID", id);
