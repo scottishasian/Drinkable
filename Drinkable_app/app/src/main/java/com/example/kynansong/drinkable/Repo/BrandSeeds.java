@@ -32,6 +32,7 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Vida", "http://delmaguey.com/vida/", "Mezcal"); //12
         brandRepo.insertBrand(db, "Chartreuse", "https://www.chartreuse.fr/en/produits/green-chartreuse/", "Chartreuse"); //13
         brandRepo.insertBrand(db, "Chambord", "http://www.chambordchannel.com/", "Liqueur"); //14
+        brandRepo.insertBrand(db, "Buckfast", "https://www.buckfast.org.uk/tonic-wine", "Tonic Wine"); //15
 
     }
 }

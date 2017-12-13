@@ -74,6 +74,9 @@ public class CocktailsSeeds {
         cocktailsRepo.insertCocktails(db, "Bramble", "50ml Gin, 25ml Lemon Juice, 15ml Sugar, 15ml Chambord",
                 "Add ingredients to a shaker then strain into glass over crushed ice, drizzle Chambord on top."); //18
 
+        cocktailsRepo.insertCocktails(db, "Buckfast Daiquiri", "50ml Buckfast, 25ml Lime Juice, 15ml Sugar",
+                "Add ingredients to a shaker then double strain into a glass."); //19
+
     }
 
 }

@@ -24,5 +24,7 @@ public class BarLocationSeeds {
         barLocationRepo.insertBarLocation(db, "Hoot the Redeemer", 55.952651, -3.196364);
         barLocationRepo.insertBarLocation(db, "The Last Word Saloon", 55.957830, -3.206537); //5
         barLocationRepo.insertBarLocation(db, "Bramble", 55.954968, -3.197573); //6
+        barLocationRepo.insertBarLocation(db, "Panda & Sons", 55.953314, -3.207015); //7
+        barLocationRepo.insertBarLocation(db, "Paradise Palms", 55.946402, -3.189096); //8
     }
 }

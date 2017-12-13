@@ -47,6 +47,7 @@ public class IngredientsSeeds {
         ingredientsRepo.insertIngredients(db, "Campari");
         ingredientsRepo.insertIngredients(db, "Green Chartreuse"); //26
         ingredientsRepo.insertIngredients(db, "Chambord"); //27
+        ingredientsRepo.insertIngredients(db, "Buckfast"); //28
 
     }
 }
