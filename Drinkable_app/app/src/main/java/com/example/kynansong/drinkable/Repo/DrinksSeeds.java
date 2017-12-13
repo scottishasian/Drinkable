@@ -76,6 +76,13 @@ public class DrinksSeeds {
         drinksRepo.insertDrink(db,16, 2);
         drinksRepo.insertDrink(db,16, 21);
         drinksRepo.insertDrink(db,16, 25);
+        drinksRepo.insertDrink(db,17, 26);
+        drinksRepo.insertDrink(db,17, 14);
+        drinksRepo.insertDrink(db,17, 2);
+        drinksRepo.insertDrink(db,18, 27);
+        drinksRepo.insertDrink(db,18, 2);
+        drinksRepo.insertDrink(db,18, 13);
+        drinksRepo.insertDrink(db,18, 16);
 
     }
 

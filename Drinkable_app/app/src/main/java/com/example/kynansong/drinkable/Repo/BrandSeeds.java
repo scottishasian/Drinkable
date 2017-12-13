@@ -29,7 +29,9 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Makers Mark", "https://www.makersmark.com/", "Bourbon");
         brandRepo.insertBrand(db, "Balvenie", "https://www.thebalvenie.com/", "Whisky");
         brandRepo.insertBrand(db, "Hendricks", "https://uk.hendricksgin.com/", "Gin");
-        brandRepo.insertBrand(db, "Vida", "http://delmaguey.com/vida/", "Mezcal");
+        brandRepo.insertBrand(db, "Vida", "http://delmaguey.com/vida/", "Mezcal"); //12
+        brandRepo.insertBrand(db, "Chartreuse", "https://www.chartreuse.fr/en/produits/green-chartreuse/", "Chartreuse"); //13
+        brandRepo.insertBrand(db, "Chambord", "http://www.chambordchannel.com/", "Liqueur"); //14
 
     }
 }

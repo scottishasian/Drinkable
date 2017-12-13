@@ -22,6 +22,7 @@ import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ChoicesActivity extends AppCompatActivity {
@@ -57,14 +58,22 @@ public class ChoicesActivity extends AppCompatActivity {
 
         this.items = ingredientsRepo.getAllIngredients();
 
+
         ArrayList<String> ingred = new ArrayList<>();
+
+
 
         for(Ingredients ingredient : this.items) {
             ingred.add(ingredient.getIngredientName());
+            Collections.sort(ingred);
         }
+
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, ingred);
+
+
 
         ingredients.setAdapter(adapter);
 

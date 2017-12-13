@@ -68,6 +68,12 @@ public class CocktailsSeeds {
         cocktailsRepo.insertCocktails(db, "Negroni", "25ml Gin, 25ml Sweet Vermouth, 25ml Campari",
                 "Add to mixing glass with ice, stir to dilute and then strain into glass.");
 
+        cocktailsRepo.insertCocktails(db, "The Last Word", "25ml Green Charteuse, 25ml Gin, 25ml Maraschino Liqueur, 25ml Lime",
+                "Add ingredients to a shaker then double strain into glass."); //17
+
+        cocktailsRepo.insertCocktails(db, "Bramble", "50ml Gin, 25ml Lemon Juice, 15ml Sugar, 15ml Chambord",
+                "Add ingredients to a shaker then strain into glass over crushed ice, drizzle Chambord on top."); //18
+
     }
 
 }

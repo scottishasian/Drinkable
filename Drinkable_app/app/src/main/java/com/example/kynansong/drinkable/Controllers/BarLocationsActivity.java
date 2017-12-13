@@ -46,7 +46,7 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID); //breaks here
 
-        barLocation = location.get(0);
+        barLocation = location.get(0); //Only produces one location.
 
         barLat = barLocation.barLat(location);
 
@@ -54,8 +54,9 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         barName = barLocation.barName(location);
 //
-//        do i need an adaptor?? YES!
+//        do i need an adaptor?? YES for multiple locations!
 //         App crashes if no location attached. Need to attach at least one location to each cocktail.
+//        Then, refactor with adaptor for multiple locations.
 
 
     }
