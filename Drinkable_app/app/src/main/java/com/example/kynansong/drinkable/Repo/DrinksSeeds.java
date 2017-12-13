@@ -83,9 +83,17 @@ public class DrinksSeeds {
         drinksRepo.insertDrink(db,18, 2);
         drinksRepo.insertDrink(db,18, 13);
         drinksRepo.insertDrink(db,18, 16);
-        drinksRepo.insertDrink(db,19, 28);  //Buckfast Daiquiri
+        drinksRepo.insertDrink(db,19, 28); //Buckfast Daiquiri
         drinksRepo.insertDrink(db,19, 14);
-        drinksRepo.insertDrink(db,19, 16);
+        drinksRepo.insertDrink(db,20, 6);  //Bloody Mary
+        drinksRepo.insertDrink(db,20, 13);
+        drinksRepo.insertDrink(db,20, 15);
+        drinksRepo.insertDrink(db,20, 29);
+        drinksRepo.insertDrink(db,21, 4);  //Hemingway Daiquiri
+        drinksRepo.insertDrink(db,21, 11);
+        drinksRepo.insertDrink(db,21, 14);
+        drinksRepo.insertDrink(db,21, 16);
+
 
     }
 

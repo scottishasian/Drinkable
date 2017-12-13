@@ -32,6 +32,7 @@ public class RecommendedBrandSeeds {
         recommendedBrandRepo.insertRecommendedBrand(db, 12,3);
         recommendedBrandRepo.insertRecommendedBrand(db, 12,4);
         recommendedBrandRepo.insertRecommendedBrand(db, 2,9);
+        recommendedBrandRepo.insertRecommendedBrand(db, 2,16);
         recommendedBrandRepo.insertRecommendedBrand(db, 10,9);
         recommendedBrandRepo.insertRecommendedBrand(db, 9,1);
         recommendedBrandRepo.insertRecommendedBrand(db, 9,8);
@@ -49,6 +50,12 @@ public class RecommendedBrandSeeds {
         recommendedBrandRepo.insertRecommendedBrand(db, 18,1);
         recommendedBrandRepo.insertRecommendedBrand(db, 18,14);
         recommendedBrandRepo.insertRecommendedBrand(db, 19,15);
+        recommendedBrandRepo.insertRecommendedBrand(db, 20,1);
+        recommendedBrandRepo.insertRecommendedBrand(db, 20,2);
+        recommendedBrandRepo.insertRecommendedBrand(db, 5,17);
+        recommendedBrandRepo.insertRecommendedBrand(db, 21,17);
+        recommendedBrandRepo.insertRecommendedBrand(db, 5,18);
+        recommendedBrandRepo.insertRecommendedBrand(db, 21,18);
 
     }
 }

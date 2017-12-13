@@ -32,7 +32,7 @@ public class CocktailsSeeds {
                 , "Build and stir in glass over ice.");
 
         cocktailsRepo.insertCocktails(db, "Daiquiri", "50ml Rum, 12.5ml Cointreau, 12.5ml Lime"
-                , "Add to shaker then double strain into glass.");
+                , "Add to shaker then double strain into glass."); //5
 
         cocktailsRepo.insertCocktails(db, "Espresso Martini", "25ml Vodka, 25ml Kahlua, 50ml Coffee"
                 , "Add to shaker, shake well, then double strain into glass.");
@@ -76,6 +76,12 @@ public class CocktailsSeeds {
 
         cocktailsRepo.insertCocktails(db, "Buckfast Daiquiri", "50ml Buckfast, 25ml Lime Juice, 15ml Sugar",
                 "Add ingredients to a shaker then double strain into a glass."); //19
+
+        cocktailsRepo.insertCocktails(db, "Bloody Mary", "50ml Vodka, 25ml Lemon Juice, 50ml Tomato Juice, 10ml Olive Brine, 10ml Port, Salt, Pepper",
+                "Build in glass, add in cucumber, basil and spices if desired."); //20
+
+        cocktailsRepo.insertCocktails(db, "Hemingway Daiquiri", "50ml Rum, 10ml Maraschino Liqueur, 12.5ml Lime, 35ml Grapefruit Juice, 10ml Sugar"
+                , "Add to shaker then double strain into glass.");//21
 
     }
 

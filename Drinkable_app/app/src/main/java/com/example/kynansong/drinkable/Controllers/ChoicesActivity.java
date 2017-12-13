@@ -40,15 +40,11 @@ public class ChoicesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choices);
 
-
-
         this.submitButton = (Button) findViewById(R.id.submit_button);
 
         ingredients = (Spinner) findViewById(R.id.ingredient_choice);
 
         insertData();
-
-
 
     }
 
@@ -58,26 +54,17 @@ public class ChoicesActivity extends AppCompatActivity {
 
         this.items = ingredientsRepo.getAllIngredients();
 
-
         ArrayList<String> ingred = new ArrayList<>();
-
-
 
         for(Ingredients ingredient : this.items) {
             ingred.add(ingredient.getIngredientName());
 //            Collections.sort(ingred); Need to fix positions.
         }
 
-
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, ingred);
 
-
-
         ingredients.setAdapter(adapter);
-
-
 
     }
 

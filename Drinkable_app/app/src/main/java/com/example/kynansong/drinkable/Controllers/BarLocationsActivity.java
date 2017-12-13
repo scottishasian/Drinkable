@@ -19,11 +19,12 @@ import java.util.ArrayList;
 public class BarLocationsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private BarLocation barLocation;
+    private BarLocation barLocation, barLocation2;
     BarLocationRepo barLocationRepo;
     private double barLat = 0;
     private double barLong = 0;
     private String barName = "";
+
 
 
     @Override
@@ -48,11 +49,15 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         barLocation = location.get(0); //Only produces one location.
 
+
         barLat = barLocation.barLat(location);
+
 
         barLong = barLocation.barLong(location);
 
+
         barName = barLocation.barName(location);
+
 //
 //        do i need an adaptor?? YES for multiple locations!
 //         App crashes if no location attached. Need to attach at least one location to each cocktail.
@@ -81,6 +86,8 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
         mMap = googleMap;
 
         // test marker
+
+
         LatLng newTag = new LatLng(barLat, barLong);
         mMap.addMarker(new MarkerOptions().position(newTag).title(barName));
         float zoomLevel = 14.0f; //This goes up to 21

@@ -33,6 +33,10 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Chartreuse", "https://www.chartreuse.fr/en/produits/green-chartreuse/", "Chartreuse"); //13
         brandRepo.insertBrand(db, "Chambord", "http://www.chambordchannel.com/", "Liqueur"); //14
         brandRepo.insertBrand(db, "Buckfast", "https://www.buckfast.org.uk/tonic-wine", "Tonic Wine"); //15
+        brandRepo.insertBrand(db, "Woodford Reserve", "https://www.woodfordreserve.com/age", "Bourbon"); //16
+        brandRepo.insertBrand(db, "Seawolf Rum", "https://twitter.com/seawolfrum?lang=en", "Bourbon"); //17
+        brandRepo.insertBrand(db, "Doorlys Rum", "https://www.marussiabeverages.co.uk/rl-seale#", "Bourbon"); //18
+
 
     }
 }
