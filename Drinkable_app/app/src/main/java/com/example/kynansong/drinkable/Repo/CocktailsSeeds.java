@@ -48,7 +48,7 @@ public class CocktailsSeeds {
 
         cocktailsRepo.insertCocktails(db, "Manhattan", "50ml Bourbon, 20ml Vermouth, 2 dashes Angostura Bitters)",
                 "Stir ingredients over ice, strain into martini glass. 20ml Sweet Vermouth (Sweet Manhattan)" +
-                        ", 20ml Dry Vermouth (Dry Manhattan) or 10ml Sweet, 10ml Dry (Perfect Manhattan)");
+                        ", 20ml Dry Vermouth (Dry Manhattan) or 10ml Sweet, 10ml Dry (Perfect Manhattan)"); //10
 
         cocktailsRepo.insertCocktails(db, "Margerhita", "37.5ml Tequila, 25ml Lime, 12.5ml Cointreau, 10ml Sugar, Salt rim",
                 "Shake and double strain into a martini or coupe.");

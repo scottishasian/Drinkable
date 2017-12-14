@@ -38,7 +38,8 @@
         android:shadowDy="0"
         android:shadowRadius="5"
         android:text="Yes"
-        android:textColor="#454545"
+        android:textColor="@drawable/button_text"
+
         android:textSize="30sp"
         android:textStyle="normal"
         android:typeface="monospace"
