@@ -43,28 +43,34 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
         Integer cocktailID = extras.getInt("locationInfo");
 
         barLocationRepo = new BarLocationRepo(this);
-//        barLocation = new BarLocation(this);
 
         ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID); //breaks here
 
-        barLocation = location.get(0); //Only produces one location.
+        for(BarLocation bar : location){
+            barLat = bar.getLatitude();
+            barLong = bar.getLongitude();
+            barName = bar.getBarName();
+        }
 
-
-        barLat = barLocation.barLat(location);
-
-
-        barLong = barLocation.barLong(location);
-
-
-        barName = barLocation.barName(location);
-
+//        barLocation = location.get(0); //Only produces one location.
 //
+//        barLat = barLocation.getLatitude();
+//
+//
+//        barLong = barLocation.getLongitude();
+//
+//
+//        barName = barLocation.getBarName();
+
 //        do i need an adaptor?? YES for multiple locations!
 //         App crashes if no location attached. Need to attach at least one location to each cocktail.
 //        Then, refactor with adaptor for multiple locations.
 
+//        Need to work out how to use location api
+
 
     }
+
 
 
 
@@ -93,7 +99,7 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
         float zoomLevel = 14.0f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
 
-//        Need to create a marker array.
+//        Need to create a for loop that produces markers.
 
 //        // Add a marker in Lebowskis and move the camera
 //        LatLng lebowskis = new LatLng(55.946117, -3.206457);
