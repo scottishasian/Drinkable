@@ -92,12 +92,31 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
         mMap = googleMap;
 
         // test marker
+        Intent intent = getIntent();
 
+        Bundle extras = intent.getExtras();
 
-        LatLng newTag = new LatLng(barLat, barLong);
-        mMap.addMarker(new MarkerOptions().position(newTag).title(barName));
-        float zoomLevel = 14.0f; //This goes up to 21
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
+        Integer cocktailID = extras.getInt("locationInfo");
+
+        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID); //breaks here
+
+        for(BarLocation bar : location){
+            barLat = bar.getLatitude();
+            barLong = bar.getLongitude();
+            barName = bar.getBarName();
+
+            LatLng newTag = new LatLng(barLat, barLong);
+            mMap.addMarker(new MarkerOptions().position(newTag).title(barName));
+            float zoomLevel = 14.0f;
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
+
+        }
+//
+//
+//        LatLng newTag = new LatLng(barLat, barLong);
+//        mMap.addMarker(new MarkerOptions().position(newTag).title(barName));
+//        float zoomLevel = 14.0f; //This goes up to 21
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
 
 //        Need to create a for loop that produces markers.
 

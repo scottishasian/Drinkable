@@ -43,6 +43,8 @@ public class Cocktail_ListActivity extends AppCompatActivity {
 
         cocktailListView.setAdapter(cocktailAdaptor);
 
+        //possible link to see all cocktails available.
+
 
     }
 

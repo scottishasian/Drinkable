@@ -50,10 +50,10 @@ public class CocktailsSeeds {
                 "Stir ingredients over ice, strain into martini glass. 20ml Sweet Vermouth (Sweet Manhattan)" +
                         ", 20ml Dry Vermouth (Dry Manhattan) or 10ml Sweet, 10ml Dry (Perfect Manhattan)"); //10
 
-        cocktailsRepo.insertCocktails(db, "Margerhita", "37.5ml Tequila, 25ml Lime, 12.5ml Cointreau, 10ml Sugar, Salt rim",
+        cocktailsRepo.insertCocktails(db, "Margarita", "37.5ml Tequila, 25ml Lime, 12.5ml Cointreau, 10ml Sugar, Salt rim",
                 "Shake and double strain into a martini or coupe.");
 
-        cocktailsRepo.insertCocktails(db, "Tommy's Margerhita", "50ml Tequila, 25ml Lime, 10ml Agave, Salt rim",
+        cocktailsRepo.insertCocktails(db, "Tommy's Margarita", "50ml Tequila, 25ml Lime, 10ml Agave, Salt rim",
                 "Shake and double strain into a martini or coupe.");
 
         cocktailsRepo.insertCocktails(db, "Caipirinha", "50ml Cachaca, 6 Lime wedges, 10ml Sugar",
@@ -74,7 +74,7 @@ public class CocktailsSeeds {
         cocktailsRepo.insertCocktails(db, "Bramble", "50ml Gin, 25ml Lemon Juice, 15ml Sugar, 15ml Chambord",
                 "Add ingredients to a shaker then strain into glass over crushed ice, drizzle Chambord on top."); //18
 
-        cocktailsRepo.insertCocktails(db, "Buckfast Daiquiri", "50ml Buckfast, 25ml Lime Juice, 15ml Sugar",
+        cocktailsRepo.insertCocktails(db, "Buckfast Daiquiri", "25ml Rum, 25ml Buckfast, 25ml Lime Juice, 15ml Sugar",
                 "Add ingredients to a shaker then double strain into a glass."); //19
 
         cocktailsRepo.insertCocktails(db, "Bloody Mary", "50ml Vodka, 25ml Lemon Juice, 50ml Tomato Juice, 10ml Olive Brine, 10ml Port, Salt, Pepper",

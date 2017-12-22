@@ -20,12 +20,13 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.719" />
 
     <Button
         android:id="@+id/welcome_button"
-        android:layout_width="205dp"
-        android:layout_height="57dp"
+        android:layout_width="155dp"
+        android:layout_height="55dp"
 
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -41,28 +42,45 @@
         android:textColor="@drawable/button_text"
 
         android:textSize="30sp"
-        android:textStyle="normal"
+        android:textStyle="normal|bold"
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.341"
+        app:layout_constraintVertical_bias="0.105"
         tools:typeface="sans" />
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/amethysta"
+        android:text="@string/AppTitle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/AppTitle" />
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="173dp"
-        android:layout_height="158dp"
+        android:id="@+id/imageView2"
+        android:layout_width="226dp"
+        android:layout_height="241dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@mipmap/martini_welcome"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.006"
+        app:srcCompat="@mipmap/drinkableluancher" />
 
 </android.support.constraint.ConstraintLayout>
