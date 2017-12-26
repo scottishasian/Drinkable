@@ -30,5 +30,10 @@ public class BarLocationSeeds {
         barLocationRepo.insertBarLocation(db, "Treacle", 55.957545, -3.188171); //10
         barLocationRepo.insertBarLocation(db, "Lucky Liquor", 55.954385, -3.201566); //11
         barLocationRepo.insertBarLocation(db, "Checkpoint", 55.946416, -3.189982); //12
+
+        //Juniper -
+        //Dragonfly - Daquris
+        //Rose Leaf - bloody mary
+        //99 hanover
     }
 }

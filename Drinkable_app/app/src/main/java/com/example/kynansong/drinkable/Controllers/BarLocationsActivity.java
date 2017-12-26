@@ -98,7 +98,7 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         Integer cocktailID = extras.getInt("locationInfo");
 
-        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID); //breaks here
+        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID);
 
         for(BarLocation bar : location){
             barLat = bar.getLatitude();

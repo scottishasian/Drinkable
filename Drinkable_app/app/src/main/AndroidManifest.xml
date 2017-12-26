@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controllers.MainActivity">
+        <activity
+            android:name=".Controllers.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,11 +29,13 @@
         </activity>
         <activity
             android:name=".Controllers.ChoicesActivity"
-            android:label="@string/choices_activity_title" />
+            android:label="@string/choices_activity_title"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Controllers.Cocktail_ListActivity"
             android:label="@string/cocktail_list_title"
-            android:parentActivityName=".Controllers.ChoicesActivity" />
+            android:parentActivityName=".Controllers.ChoicesActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Controllers.AddingActivity"
             android:label="@string/cocktail_adding_title"
@@ -39,7 +43,8 @@
         <activity
             android:name=".Controllers.CocktailInfoActivity"
             android:label="@string/cocktail_info_title"
-            android:parentActivityName=".Controllers.ChoicesActivity" />
+            android:parentActivityName=".Controllers.ChoicesActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Controllers.AddIngredientsToCocktailActivity"
             android:label="@string/cocktail_add_ingred_title"
@@ -55,7 +60,8 @@
         <activity
             android:name=".Controllers.RecommendedActivity"
             android:label="@string/cocktail_recommended_title"
-            android:parentActivityName=".Controllers.ChoicesActivity" />
+            android:parentActivityName=".Controllers.ChoicesActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Controllers.WebViewActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
