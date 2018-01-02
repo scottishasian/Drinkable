@@ -1,30 +1,55 @@
 package com.example.kynansong.drinkable.Controllers;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.os.Looper;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.kynansong.drinkable.Models.BarLocation;
 import com.example.kynansong.drinkable.R;
 import com.example.kynansong.drinkable.Repo.BarLocationRepo;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
+
+import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
 public class BarLocationsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private BarLocation barLocation, barLocation2;
     BarLocationRepo barLocationRepo;
+    private FusedLocationProviderClient mFusedLocationClient;
     private double barLat = 0;
     private double barLong = 0;
     private String barName = "";
+    private LocationRequest mLocationRequest;
 
+    private long UPDATE_INTERVAL = 10 * 1000; // 10 second interval.
+    private long FASTEST_INTERVAL = 2000;
 
 
     @Override
@@ -52,27 +77,10 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
             barName = bar.getBarName();
         }
 
-//        barLocation = location.get(0); //Only produces one location.
-//
-//        barLat = barLocation.getLatitude();
-//
-//
-//        barLong = barLocation.getLongitude();
-//
-//
-//        barName = barLocation.getBarName();
-
-//        do i need an adaptor?? YES for multiple locations!
-//         App crashes if no location attached. Need to attach at least one location to each cocktail.
-//        Then, refactor with adaptor for multiple locations.
-
-//        Need to work out how to use location api
+//        startLocationUpdates();
 
 
     }
-
-
-
 
     /**
      * Manipulates the map once available.
@@ -91,7 +99,6 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // test marker
         Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
@@ -111,31 +118,88 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
 
         }
-//
-//
-//        LatLng newTag = new LatLng(barLat, barLong);
-//        mMap.addMarker(new MarkerOptions().position(newTag).title(barName));
-//        float zoomLevel = 14.0f; //This goes up to 21
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newTag, zoomLevel));
 
-//        Need to create a for loop that produces markers.
+//        if(checkPermissions()) {
+//            googleMap.setMyLocationEnabled(true);
+//        }
 
-//        // Add a marker in Lebowskis and move the camera
-//        LatLng lebowskis = new LatLng(55.946117, -3.206457);
-//        mMap.addMarker(new MarkerOptions().position(lebowskis).title("Marker Lebowskis"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(lebowskis));
-//
-//        // Add a marker in The Voyage of Buck and move the camera
-//        LatLng voyage = new LatLng(55.949632, -3.212400);
-//        mMap.addMarker(new MarkerOptions().position(voyage).title("Marker The Voyage of Buck"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(voyage));
-//
-//        // Add a marker in Voodoo and move the camera
-//        LatLng voodoo = new LatLng(55.953956, -3.190682);
-//        mMap.addMarker(new MarkerOptions().position(voodoo).title("Marker The Voodoo Rooms"));
-//        float zoomLevel = 14.0f; //This goes up to 21
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(voodoo, zoomLevel));
     }
 
-    //add location manager and cursor to loop through array of locations based on cocktail id.
+//    private boolean checkPermissions() {
+//        if(ContextCompat.checkSelfPermission(this,
+//                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//                return true;
+//        } else {
+//            requestPermissions();
+//            return false;
+//        }
+//    }
+
+//    private void requestPermissions() {
+//        ActivityCompat.requestPermissions(this,
+//                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+//                REQUEST_FINE_LOCATION);
+//    }
+//
+//    protected void startLocationUpdates() {
+//
+//        //Initial request to start recieving updates.
+//        mLocationRequest = new LocationRequest();
+//        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+//        mLocationRequest.setInterval(UPDATE_INTERVAL);
+//        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+//
+//        //Create a LocationSettingsRequest object.
+//
+//        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
+//        builder.addLocationRequest(mLocationRequest);
+//        LocationSettingsRequest locationSettingsRequest = builder.build();
+//
+//        //Accessing the google settingsclient API for location services.
+//        SettingsClient settingsClient = LocationServices.getSettingsClient(this);
+//        settingsClient.checkLocationSettings(locationSettingsRequest);
+//
+//        getFusedLocationProviderClient(this).requestLocationUpdates(mLocationRequest, new LocationCallback() {
+//            @Override
+//            public void onLocationResult(LocationResult locationResult) {
+//                onLocationChanged(locationResult.getLastLocation());
+//            }
+//        },
+//                Looper.myLooper());
+//
+//    }
+//
+//    public void onLocationChanged(Location location) {
+//
+//        String msg = "Updated Location: " +
+//                Double.toString(location.getLatitude()) + "," +
+//                Double.toString(location.getLongitude());
+//        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+//
+//        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+//
+//    }
+//
+//    public void getLastLocation() {
+//        FusedLocationProviderClient locationProviderClient =  getFusedLocationProviderClient(this);
+//
+//        locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+//            @Override
+//            public void onSuccess(Location location) {
+//                if(location != null) {
+//                    onLocationChanged(location);
+//                }
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Log.d("BarLocationsActivity", "Error tying to get last position");
+//                e.printStackTrace();
+//            }
+//        });
+//    }
+//
+//
+
+
 }
