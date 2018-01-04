@@ -37,6 +37,10 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Seawolf Rum", "https://twitter.com/seawolfrum?lang=en", "Rum"); //17
         brandRepo.insertBrand(db, "Doorlys Rum", "https://www.marussiabeverages.co.uk/rl-seale#", "Rum"); //18
         brandRepo.insertBrand(db, "Monkey Shoulder", "https://www.monkeyshoulder.com/", "Whisky"); //19
+        brandRepo.insertBrand(db, "Mathusalem", "http://www.matusalem.com/", "Rum"); //20
+        brandRepo.insertBrand(db, "Eldorado", "https://www.theeldoradorum.com/", "Rum"); //21
+        brandRepo.insertBrand(db, "Courvoisier", "http://www.courvoisier.com/global/", "Cognac"); //22
+        brandRepo.insertBrand(db, "Martell", "https://www.martell.com/en-uk/", "Cognac"); //23
 
 
     }

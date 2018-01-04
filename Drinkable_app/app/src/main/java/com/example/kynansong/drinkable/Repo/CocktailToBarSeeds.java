@@ -44,6 +44,15 @@ public class CocktailToBarSeeds {
         cocktailToBarRepo.insertRecommendedBar(db, 16, 1);
         cocktailToBarRepo.insertRecommendedBar(db, 22, 5);
         cocktailToBarRepo.insertRecommendedBar(db, 22, 13);
+        cocktailToBarRepo.insertRecommendedBar(db, 23, 10);
+        cocktailToBarRepo.insertRecommendedBar(db, 8, 3);
+        cocktailToBarRepo.insertRecommendedBar(db, 8, 7);
+        cocktailToBarRepo.insertRecommendedBar(db, 8, 14);
+        cocktailToBarRepo.insertRecommendedBar(db, 20, 16);
+        cocktailToBarRepo.insertRecommendedBar(db, 5, 15);
+        cocktailToBarRepo.insertRecommendedBar(db, 5, 17);
+        cocktailToBarRepo.insertRecommendedBar(db, 24, 17);
+        cocktailToBarRepo.insertRecommendedBar(db, 24, 1);
 
 
     }

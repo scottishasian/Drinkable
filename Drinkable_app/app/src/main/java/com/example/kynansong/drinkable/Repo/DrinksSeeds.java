@@ -98,6 +98,12 @@ public class DrinksSeeds {
         drinksRepo.insertDrink(db,22, 1);
         drinksRepo.insertDrink(db,22, 7);
         drinksRepo.insertDrink(db,22, 13);
+        drinksRepo.insertDrink(db,23, 16); //Treacle
+        drinksRepo.insertDrink(db,23, 4);
+        drinksRepo.insertDrink(db,23, 8);
+        drinksRepo.insertDrink(db,24, 30); //Sidecar
+        drinksRepo.insertDrink(db,24, 19);
+        drinksRepo.insertDrink(db,24, 13);
 
 
     }

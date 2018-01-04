@@ -86,6 +86,12 @@ public class CocktailsSeeds {
         cocktailsRepo.insertCocktails(db, "Whisky Sour", "50ml Whisky or Bourbon, 20ml Lemon Juice, 12.5ml Sugar, 15ml Egg White"
                 , "Add to shaker then single strain into glass. Garnish with a lemon twist");//22
 
+        cocktailsRepo.insertCocktails(db, "Treacle", "50ml Rum, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters, 15ml Apple Juice"
+                , "Muddle the sugar and bitters into a treacle, then stir in the rum over ice. Finally add apple juice."); //23
+
+        cocktailsRepo.insertCocktails(db, "Sidecar", "50ml Cognac, 15ml Lemon Juice, 15ml Cointreu/Triple Sec"
+                , "Add all ingredients to a shaker, shake and double strain into a cocktail glass."); //24
+
     }
 
 }
