@@ -94,6 +94,10 @@ public class DrinksSeeds {
         drinksRepo.insertDrink(db,21, 11);
         drinksRepo.insertDrink(db,21, 14);
         drinksRepo.insertDrink(db,21, 16);
+        drinksRepo.insertDrink(db,22, 16); //Whisky Sour
+        drinksRepo.insertDrink(db,22, 1);
+        drinksRepo.insertDrink(db,22, 7);
+        drinksRepo.insertDrink(db,22, 13);
 
 
     }

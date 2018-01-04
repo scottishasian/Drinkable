@@ -3,6 +3,7 @@ package com.example.kynansong.drinkable.Controllers;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Looper;
@@ -17,12 +18,14 @@ import android.widget.Toast;
 import com.example.kynansong.drinkable.Models.BarLocation;
 import com.example.kynansong.drinkable.R;
 import com.example.kynansong.drinkable.Repo.BarLocationRepo;
+import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,6 +35,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
@@ -46,10 +50,9 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
     private double barLat = 0;
     private double barLong = 0;
     private String barName = "";
-    private LocationRequest mLocationRequest;
+    protected LocationRequest mLocationRequest = new LocationRequest();
+    private static final int REQUEST_CODE_RESOLUTION = 1;
 
-    private long UPDATE_INTERVAL = 10 * 1000; // 10 second interval.
-    private long FASTEST_INTERVAL = 2000;
 
 
     @Override
@@ -69,7 +72,7 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         barLocationRepo = new BarLocationRepo(this);
 
-        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID); //breaks here
+        ArrayList<BarLocation> location = barLocationRepo.getListBars(cocktailID);
 
         for(BarLocation bar : location){
             barLat = bar.getLatitude();
@@ -77,7 +80,49 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
             barName = bar.getBarName();
         }
 
-//        startLocationUpdates();
+        //Location services code.
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        mFusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location != null) {
+
+                }
+            }
+        });
+
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(mLocationRequest);
+
+        SettingsClient client = LocationServices.getSettingsClient(this);
+        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
+
+        task.addOnSuccessListener(this, new OnSuccessListener<LocationSettingsResponse>() {
+            @Override
+            public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
+
+            }
+        });
+
+        task.addOnFailureListener(this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                if(e instanceof ResolvableApiException) {
+                    try{
+                        ResolvableApiException resolvable = (ResolvableApiException) e;
+                        resolvable.startResolutionForResult(BarLocationsActivity.this,
+                                REQUEST_CODE_RESOLUTION);
+                    } catch (IntentSender.SendIntentException sendEX) {
+
+                    }
+                }
+            }
+        });
 
 
     }
@@ -119,87 +164,10 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
         }
 
-//        if(checkPermissions()) {
-//            googleMap.setMyLocationEnabled(true);
-//        }
 
     }
 
-//    private boolean checkPermissions() {
-//        if(ContextCompat.checkSelfPermission(this,
-//                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//                return true;
-//        } else {
-//            requestPermissions();
-//            return false;
-//        }
-//    }
 
-//    private void requestPermissions() {
-//        ActivityCompat.requestPermissions(this,
-//                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-//                REQUEST_FINE_LOCATION);
-//    }
-//
-//    protected void startLocationUpdates() {
-//
-//        //Initial request to start recieving updates.
-//        mLocationRequest = new LocationRequest();
-//        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-//        mLocationRequest.setInterval(UPDATE_INTERVAL);
-//        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-//
-//        //Create a LocationSettingsRequest object.
-//
-//        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
-//        builder.addLocationRequest(mLocationRequest);
-//        LocationSettingsRequest locationSettingsRequest = builder.build();
-//
-//        //Accessing the google settingsclient API for location services.
-//        SettingsClient settingsClient = LocationServices.getSettingsClient(this);
-//        settingsClient.checkLocationSettings(locationSettingsRequest);
-//
-//        getFusedLocationProviderClient(this).requestLocationUpdates(mLocationRequest, new LocationCallback() {
-//            @Override
-//            public void onLocationResult(LocationResult locationResult) {
-//                onLocationChanged(locationResult.getLastLocation());
-//            }
-//        },
-//                Looper.myLooper());
-//
-//    }
-//
-//    public void onLocationChanged(Location location) {
-//
-//        String msg = "Updated Location: " +
-//                Double.toString(location.getLatitude()) + "," +
-//                Double.toString(location.getLongitude());
-//        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-//
-//        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-//
-//    }
-//
-//    public void getLastLocation() {
-//        FusedLocationProviderClient locationProviderClient =  getFusedLocationProviderClient(this);
-//
-//        locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-//            @Override
-//            public void onSuccess(Location location) {
-//                if(location != null) {
-//                    onLocationChanged(location);
-//                }
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.d("BarLocationsActivity", "Error tying to get last position");
-//                e.printStackTrace();
-//            }
-//        });
-//    }
-//
-//
 
 
 }

@@ -23,7 +23,7 @@ public class CocktailsSeeds {
                 , "Muddle the lime, sugar and mint, then stir in the rum over crushed ice. Finish with Soda.");
 
         cocktailsRepo.insertCocktails(db, "Old Fashioned", "50ml Bourbon or Rum, 1 sugar cube, 3 dashes Orange bitters, 3 dashes Angostura bitters"
-                , "Muddle the sugar and bitters into a treacle, then stir in the bourbon over ice.");
+                , "Muddle the sugar and bitters into a treacle, then stir in the bourbon/rum over ice.");
 
         cocktailsRepo.insertCocktails(db, "Paloma", "50ml Tequila, 12.5ml Lime Juice, 75ml Grapefruit Juice/Soda, 12.5ml Agave, salt rim"
                 , "Build and stir in glass over ice.");
@@ -82,6 +82,9 @@ public class CocktailsSeeds {
 
         cocktailsRepo.insertCocktails(db, "Hemingway Daiquiri", "50ml Rum, 10ml Maraschino Liqueur, 12.5ml Lime, 35ml Grapefruit Juice, 10ml Sugar"
                 , "Add to shaker then double strain into glass.");//21
+
+        cocktailsRepo.insertCocktails(db, "Whisky Sour", "50ml Whisky or Bourbon, 20ml Lemon Juice, 12.5ml Sugar, 15ml Egg White"
+                , "Add to shaker then single strain into glass. Garnish with a lemon twist");//22
 
     }
 

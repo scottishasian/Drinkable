@@ -26,13 +26,13 @@ public class IngredientsSeeds {
         ingredientsRepo.insertIngredients(db,"Rum");
         ingredientsRepo.insertIngredients(db,"Tequila");
         ingredientsRepo.insertIngredients(db,"Vodka");
-        ingredientsRepo.insertIngredients(db,"Whisky");
+        ingredientsRepo.insertIngredients(db,"Whisky"); //7
         ingredientsRepo.insertIngredients(db,"Apple");
         ingredientsRepo.insertIngredients(db,"Agave"); //9
         ingredientsRepo.insertIngredients(db,"Bitters");
         ingredientsRepo.insertIngredients(db,"Grapefruit");
         ingredientsRepo.insertIngredients(db,"Mint");
-        ingredientsRepo.insertIngredients(db,"Lemon");
+        ingredientsRepo.insertIngredients(db,"Lemon"); //13
         ingredientsRepo.insertIngredients(db,"Lime");
         ingredientsRepo.insertIngredients(db,"Salt"); //15
         ingredientsRepo.insertIngredients(db,"Sugar");

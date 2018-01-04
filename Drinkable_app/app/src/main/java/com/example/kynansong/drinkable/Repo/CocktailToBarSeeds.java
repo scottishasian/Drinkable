@@ -40,6 +40,10 @@ public class CocktailToBarSeeds {
         cocktailToBarRepo.insertRecommendedBar(db, 1, 1);
         cocktailToBarRepo.insertRecommendedBar(db, 1, 4);
         cocktailToBarRepo.insertRecommendedBar(db, 1, 7);
+        cocktailToBarRepo.insertRecommendedBar(db, 16, 13);
+        cocktailToBarRepo.insertRecommendedBar(db, 16, 1);
+        cocktailToBarRepo.insertRecommendedBar(db, 22, 5);
+        cocktailToBarRepo.insertRecommendedBar(db, 22, 13);
 
 
     }
