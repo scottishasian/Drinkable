@@ -50,6 +50,7 @@ public class IngredientsSeeds {
         ingredientsRepo.insertIngredients(db, "Buckfast"); //28
         ingredientsRepo.insertIngredients(db, "Tomato Juice"); //29
         ingredientsRepo.insertIngredients(db, "Cognac"); //30
+        ingredientsRepo.insertIngredients(db, "Amaretto"); //31
 
     }
 }

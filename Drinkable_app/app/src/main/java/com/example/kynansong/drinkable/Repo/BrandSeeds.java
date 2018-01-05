@@ -41,6 +41,7 @@ public class BrandSeeds {
         brandRepo.insertBrand(db, "Eldorado", "https://www.theeldoradorum.com/", "Rum"); //21
         brandRepo.insertBrand(db, "Courvoisier", "http://www.courvoisier.com/global/", "Cognac"); //22
         brandRepo.insertBrand(db, "Martell", "https://www.martell.com/en-uk/", "Cognac"); //23
+        brandRepo.insertBrand(db, "Disaronno", "http://www.disaronno.com/", "Liqueur"); //24
 
 
     }

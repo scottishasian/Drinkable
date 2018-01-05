@@ -62,6 +62,7 @@ public class RecommendedBrandSeeds {
         recommendedBrandRepo.insertRecommendedBrand(db, 23,21);
         recommendedBrandRepo.insertRecommendedBrand(db, 24,22);
         recommendedBrandRepo.insertRecommendedBrand(db, 24,23);
+        recommendedBrandRepo.insertRecommendedBrand(db, 25,24);
 
     }
 }

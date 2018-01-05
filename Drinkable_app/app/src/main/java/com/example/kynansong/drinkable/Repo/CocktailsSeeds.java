@@ -92,6 +92,9 @@ public class CocktailsSeeds {
         cocktailsRepo.insertCocktails(db, "Sidecar", "50ml Cognac, 15ml Lemon Juice, 15ml Cointreu/Triple Sec"
                 , "Add all ingredients to a shaker, shake and double strain into a cocktail glass."); //24
 
+        cocktailsRepo.insertCocktails(db, "Amaretto Sour", "50ml Amaretto, 20ml Lemon Juice, 12.5ml Sugar, 15ml Egg White"
+                , "Add to shaker then single strain into glass. Garnish with a cherry");//25
+
     }
 
 }
