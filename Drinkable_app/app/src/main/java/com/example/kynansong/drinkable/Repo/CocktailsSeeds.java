@@ -77,7 +77,7 @@ public class CocktailsSeeds {
         cocktailsRepo.insertCocktails(db, "Buckfast Daiquiri", "25ml Rum, 25ml Buckfast, 25ml Lime Juice, 15ml Sugar",
                 "Add ingredients to a shaker then double strain into a glass."); //19
 
-        cocktailsRepo.insertCocktails(db, "Bloody Mary", "50ml Vodka, 25ml Lemon Juice, 50ml Tomato Juice, 10ml Olive Brine, 10ml Port, Salt, Pepper",
+        cocktailsRepo.insertCocktails(db, "Bloody Mary", "50ml Vodka, 25ml Lemon Juice, 50ml Tomato Juice, 10ml Olive Brine, 10ml Port, Worcestershire Sauce, Tabasco Salt, Pepper",
                 "Build in glass, add in cucumber, basil and spices if desired."); //20
 
         cocktailsRepo.insertCocktails(db, "Hemingway Daiquiri", "50ml Rum, 10ml Maraschino Liqueur, 12.5ml Lime, 35ml Grapefruit Juice, 10ml Sugar"
@@ -94,6 +94,10 @@ public class CocktailsSeeds {
 
         cocktailsRepo.insertCocktails(db, "Amaretto Sour", "50ml Amaretto, 20ml Lemon Juice, 12.5ml Sugar, 15ml Egg White"
                 , "Add to shaker then single strain into glass. Garnish with a cherry");//25
+
+        cocktailsRepo.insertCocktails(db, "Sazerac", "7ml Absinthe, 1 sugar cube, 3 dashed Peychaud Bitters, 50ml Cognac or Rye Whiskey."
+                , "Rinse the glass with Absinthe, then chill glass with ice. Separately stir all other ingredients over ice, then decant ice and strain the mix into the " +
+                        "absinthe rinsed glass. Garnish with a lemon twist.");//26
 
     }
 

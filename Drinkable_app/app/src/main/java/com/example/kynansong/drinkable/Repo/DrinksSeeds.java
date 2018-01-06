@@ -109,6 +109,9 @@ public class DrinksSeeds {
         drinksRepo.insertDrink(db,25, 31); //Amaretto sour
         drinksRepo.insertDrink(db,25, 16);
         drinksRepo.insertDrink(db,25, 13);
+        drinksRepo.insertDrink(db,26, 30); //Sazerac
+        drinksRepo.insertDrink(db,26, 16);
+        drinksRepo.insertDrink(db,26, 10);
 
 
     }
