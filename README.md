@@ -19,3 +19,4 @@ ingredients they will need and their measurements.
 
 * Enable usb developer options on your android phone.
 * Install the app-debug.apk item located in /app/build/outputs/apk/debug.
+* https://play.google.com/store/apps/details?id=com.kynansong.drinkable
