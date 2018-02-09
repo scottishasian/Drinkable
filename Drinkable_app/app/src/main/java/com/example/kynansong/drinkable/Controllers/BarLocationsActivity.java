@@ -55,6 +55,14 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
 
 
 
+    //added for location services 24/01/2018
+    private LocationCallback mLocationCallback;
+    private Boolean mRequestingLocationUpdates;
+    private final static String KEY_REQUESTING_LOCATION_UPDATES = "requesting-location-updates";
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,18 +88,18 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
             barName = bar.getBarName();
         }
 
-        //Location services code.
-
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        mFusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if(location != null) {
-
-                }
-            }
-        });
+//        //Location services code.
+//
+//        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+//
+//        mFusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+//            @Override
+//            public void onSuccess(Location location) {
+//                if(location != null) {
+//
+//                }
+//            }
+//        });
 
         mLocationRequest.setInterval(10000);
         mLocationRequest.setFastestInterval(5000);
@@ -118,14 +126,79 @@ public class BarLocationsActivity extends FragmentActivity implements OnMapReady
                         resolvable.startResolutionForResult(BarLocationsActivity.this,
                                 REQUEST_CODE_RESOLUTION);
                     } catch (IntentSender.SendIntentException sendEX) {
+                        //will ignore the error.
 
                     }
                 }
             }
         });
 
+        mLocationCallback = new LocationCallback() {
+          @Override
+            public void onLocationResult(LocationResult locationResult) {
+              for (Location userLocation : locationResult.getLocations()) {
+                  //update UI with location data here.
+              }
+          }
+        };
+
+//        updateValuesFromBundle(savedInstanceState);
 
     }
+//
+//    //Request Location Updates
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        if(mRequestingLocationUpdates) {
+//            startLocationUpdates();
+//        }
+//
+//
+//    }
+//
+//    private void startLocationUpdates() {
+//        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, null);
+//                //Will need location permission access.
+//    }
+//
+//    //Stop Location Updates
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        stopLocationUpdates();
+//    }
+//
+//    private void stopLocationUpdates() {
+//        mFusedLocationClient.removeLocationUpdates(mLocationCallback);
+//    }
+//
+//    //Save the state of the activity
+//
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        outState.putBoolean(KEY_REQUESTING_LOCATION_UPDATES,
+//                mRequestingLocationUpdates);
+//
+//        super.onSaveInstanceState(outState);
+//    }
+//
+//    private void updateValuesFromBundle(Bundle savedInstanceState) {
+//        if(savedInstanceState.keySet().contains(KEY_REQUESTING_LOCATION_UPDATES)) {
+//            mRequestingLocationUpdates = savedInstanceState.getBoolean(
+//                    KEY_REQUESTING_LOCATION_UPDATES);
+//        }
+//
+////        updateUI(); from tutorial regarding a button press.
+//    }
+//
+//
+//
+
+
+
 
     /**
      * Manipulates the map once available.
