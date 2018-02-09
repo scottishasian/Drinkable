@@ -1,14 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'drinkablekey'
+            keyPassword '9510song'
+            storeFile file('/Users/kynansong/Documents/KeyStore/drinkablekey')
+            storePassword '9510song'
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.kynansong.drinkable"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 5
-        versionName "1.5"
+        versionCode 8
+        versionName "1.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
@@ -16,10 +25,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.google.android.gms:play-services-maps:11.6.0'
