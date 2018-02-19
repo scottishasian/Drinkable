@@ -72,4 +72,9 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.cocktailList)).check(matches(isDisplayed()));
 
     }
+
+    @Test
+    public void canSelectItemFromList() {
+
+    }
 }
