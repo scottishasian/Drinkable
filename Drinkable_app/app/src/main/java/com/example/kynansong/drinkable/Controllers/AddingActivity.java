@@ -1,25 +1,17 @@
 package com.example.kynansong.drinkable.Controllers;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.kynansong.drinkable.Database.DrinkableDatabase;
-import com.example.kynansong.drinkable.Models.Ingredients;
 import com.example.kynansong.drinkable.R;
 import com.example.kynansong.drinkable.Repo.CocktailsRepo;
 import com.example.kynansong.drinkable.Repo.DrinksRepo;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AddingActivity extends AppCompatActivity {
 
@@ -87,9 +79,9 @@ public class AddingActivity extends AppCompatActivity {
         save_cocktail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isInserted = cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
-                        measurements.getText().toString(), description.getText().toString());
-                if(isInserted = true) {
+                if(name.getText().length() != 0) {
+                    cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
+                            measurements.getText().toString(), description.getText().toString());
                     Toast.makeText(AddingActivity.this, "Cocktail Added", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(AddingActivity.this, "Cocktail Not Added", Toast.LENGTH_LONG).show();
