@@ -2,9 +2,8 @@ package com.example.kynansong.drinkable.Controllers;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,21 +13,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.example.kynansong.drinkable.Database.DrinkableDatabase;
 import com.example.kynansong.drinkable.Models.Ingredients;
 import com.example.kynansong.drinkable.R;
-import com.example.kynansong.drinkable.Repo.CocktailsRepo;
-import com.example.kynansong.drinkable.Repo.DrinksRepo;
 import com.example.kynansong.drinkable.Repo.IngredientsRepo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ChoicesActivity extends AppCompatActivity {
     Context context;
     IngredientsRepo ingredientsRepo;
     Spinner ingredients;
+    String testValue;
 
     List<Ingredients> items;
     Button submitButton;
@@ -68,10 +64,18 @@ public class ChoicesActivity extends AppCompatActivity {
 
     }
 
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        testValue = parent.getItemAtPosition(pos).toString();
+    }
+
+
     public void onButtonClickChoices(View button) {
         Intent intent = new Intent(this, Cocktail_ListActivity.class);
 
+
         int position = this.ingredients.getSelectedItemPosition();
+
+
 
         Integer id = this.items.get(position).getIngredientID();
         //Position is being entered as ingred ID. Can't use position if array is sorted.

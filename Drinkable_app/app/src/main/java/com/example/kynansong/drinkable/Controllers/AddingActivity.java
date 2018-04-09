@@ -79,7 +79,7 @@ public class AddingActivity extends AppCompatActivity {
         save_cocktail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name.getText().length() != 0) {
+                if((name.getText().length() != 0) && (measurements.getText().length() != 0)) {
                     cocktailsRepo.insertCocktails(db.getWritableDatabase(), name.getText().toString(),
                             measurements.getText().toString(), description.getText().toString());
                     Toast.makeText(AddingActivity.this, "Cocktail Added", Toast.LENGTH_LONG).show();

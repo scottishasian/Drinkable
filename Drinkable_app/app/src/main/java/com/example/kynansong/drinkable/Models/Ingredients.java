@@ -1,16 +1,5 @@
 package com.example.kynansong.drinkable.Models;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.ListView;
-
-import com.example.kynansong.drinkable.Repo.IngredientsRepo;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by kynansong on 19/11/2017.
  */
@@ -42,4 +31,5 @@ public class Ingredients {
     public void setingredientID(Integer id) {
         this.ingredientID = id;
     }
+
 }
