@@ -12,8 +12,8 @@ pipeline {
         stage('Tests') {
             steps {
                 sh 'cd /Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app'
-                // sh 'export JAVA_HOME=`/usr/libexec/java_home`'
-                // sh 'export ANDROID_HOME=/Users/kynan/Library/Android/sdk'
+                sh 'export JAVA_HOME=/usr/libexec/java_home'
+                sh 'export ANDROID_HOME=/Users/kynan/Library/Android/sdk'
                 sh 'sh androidBuild.sh'
                 // sh 'cd /Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app'
                 // sh './gradlew assembleAndroidTest'
