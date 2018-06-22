@@ -24,12 +24,11 @@ pipeline {
         //     }
         // }
 
-        // stage('AdHoc'){
-        //     steps {
-        //         sh 'zip -rj PwcCompliance/build/PwcCompliance.app.dSYM.zip PwcCompliance/build/PwcCompliance.xcarchive/dSYMs/PwcCompliance.app.dSYM' 
-        //         sh 'zip -r PwcCompliance/build/PwcCompliance.xcarchive.zip PwcCompliance/build/PwcCompliance.xcarchive'
-        //     }
-        // }
+        stage('AdHoc'){
+            steps {
+                sh 'zip -rj /Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk.zip /Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk  ' 
+            }
+        }
 
         // stage('Archive') {
         //     steps {
