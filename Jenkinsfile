@@ -11,7 +11,8 @@ pipeline {
     stages {
         stage('Tests') {
             steps {
-                sh 'cd '
+                sh 'export JAVA_HOME=`/usr/libexec/java_home`'
+                sh 'export ANDROID_HOME=/Users/kynan/Library/Android/sdk'
                 sh './gradlew assembleAndroidTest'
                 sh './gradlew testDebugUnitTest'
             }
@@ -40,11 +41,11 @@ pipeline {
 
         // }
 
-        stage('Clean') {
-            steps {
-                cleanWs()
-            }
-        }
+        // stage('Clean') {
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
     }
 
     // post {
