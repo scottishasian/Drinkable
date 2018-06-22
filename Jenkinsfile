@@ -40,11 +40,11 @@ pipeline {
 
         // }
 
-        stage('Clean') {
-            steps {
-                cleanWs()
-            }
-        }
+        // stage('Clean') {
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
     }
 
     // post {
