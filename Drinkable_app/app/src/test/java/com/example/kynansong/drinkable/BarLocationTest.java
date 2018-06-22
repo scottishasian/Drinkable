@@ -39,7 +39,7 @@ public class BarLocationTest {
 
     @Test
     public void getLongitudeTest() {
-        assertEquals(55.953956, barLocation.getLongitude(), 0.01);
+        assertEquals(-3.190682, barLocation.getLongitude(), 0.01);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class BarLocationTest {
 
     @Test
     public void getLatitudeTest() {
-        assertEquals(-3.190682, barLocation.getLatitude(), 0.01);
+        assertEquals(55.953956, barLocation.getLatitude(), 0.01);
     }
 
     @Test
