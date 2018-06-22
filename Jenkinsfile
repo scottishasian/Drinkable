@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
 pipeline {
-    // agent {
-    //     label 'pwccompliance'
-    // }
+    agent {
+        label 'androidTest'
+    }
     // environment {
     //     PWC_SLACK_TOKEN = credentials('pwc-jenkins-slack')
 
