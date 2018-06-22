@@ -21,13 +21,13 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'cd /Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app'
-                sh './gradlew assembleDebug'
+        // stage('Build') {
+        //     steps {
+        //         sh 'cd /Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app'
+        //         sh './gradlew assembleDebug'
 
-            }
-        }
+        //     }
+        // }
 
         // stage('AdHoc'){
         //     steps {
