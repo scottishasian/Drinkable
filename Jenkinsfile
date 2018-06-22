@@ -30,14 +30,12 @@ pipeline {
             }
         }
 
-        // stage('Archive') {
-        //     steps {
-        //         archive 'PwcCompliance/build/PwcCompliance.app.dSYM.zip'
-        //         archive 'PwcCompliance/build/PwcCompliance.xcarchive.zip'
-        //         archive 'PwcCompliance/build/PwcCompliance.ipa'
-        //     }
+        stage('Archive') {
+            steps {
+                archive '/Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk.zip'
+            }
 
-        // }
+        }
 
         // stage('Clean') {
         //     steps {
