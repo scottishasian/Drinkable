@@ -32,7 +32,7 @@ pipeline {
 
         stage('Archive') {
             steps {
-                archive '/Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk.zip'
+                archiveArtifacts '/Users/kynan/.jenkins/workspace/AndroidBuildTest/Drinkable_app/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk.zip'
             }
 
         }
